@@ -1,0 +1,64 @@
+#!/bin/bash
+#
+# August 2021 -Gene Weber
+#
+# Install Chapel
+
+# **** USING UDP INSTEAD OF OPEN MPI ****
+# # Install Open MPI
+# wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.gz
+# tar -xvf openmpi-4.1.1.tar.gz
+# rm openmpi-4.1.1.tar.gz
+# cd openmpi-4.1.1
+# mkdir build
+# cd build
+# ../configure 2>&1 | tee config.log
+# make -j 16 2>&1 | tee make.log
+# sudo make install 2>&1 | tee install.log
+
+# Get Chapel Software
+cd /home/centos/software
+wget https://github.com/chapel-lang/chapel/releases/download/1.24.1/chapel-1.24.1.tar.gz
+tar -xvf chapel-1.24.1.tar.gz
+rm chapel-1.24.1.tar.gz
+
+Added to .bashrc
+# Chapel Stuff
+export CHPL_HOME=/home/centos/software/chapel-1.24.1
+export CHPL_CONFIG=/home/centos/software/chapel-1.24.1
+export PATH=/home/centos/software/chapel-1.24.1/bin/linux64-x86_64:/home/centos/software/chapel-1.24.1/util:$PATH
+export MANPATH=/home/centos/software/chapel-1.24.1/man:$MANPATH
+
+# Create chplconfig file in Chapel Home directory
+Add these lines:
+CHPL_HOME=/home/centos/software/chapel-1.24.1
+CHPL_HOST_PLATFORM=linux64
+CHPL_HOST_COMPILER=gnu
+CHPL_HOST_ARCH=x86_64
+CHPL_TARGET_PLATFORM=linux64
+CHPL_TARGET_COMPILER=gnu
+CHPL_TARGET_ARCH=x86_64
+CHPL_TARGET_CPU=native
+CHPL_LOCALE_MODEL=flat
+CHPL_COMM=gasnet
+CHPL_COMM_SUBSTRATE=mpi
+CHPL_COMM_DEBUG=1
+CHPL_GASNET_SEGMENT=everything
+CHPL_TASKS=qthreads
+CHPL_LAUNCHER=gasnetrun_mpi
+CHPL_TIMERS=generic
+CHPL_UNWIND=none
+CHPL_MEM=jemalloc
+CHPL_ATOMICS=cstdlib
+CHPL_GMP=none
+CHPL_HWLOC=bundled
+CHPL_REGEXP=none
+CHPL_LLVM=none
+CHPL_AUX_FILESYS=none
+CHPL_LIB_PIC=pic
+CHPL_SANITIZE=none
+CHPL_SANITIZE_EXE=none
+
+
+# Build Chapel
+make -j 16 2>&1 | tee make.log

@@ -1,0 +1,25 @@
+Benchmarking RocksDB
+Created by Raphael 'kena' Poss
+Feb 23, 2019 min read
+To benchmark RocksDB outside of CockroachDB, use upstream's db_bench tool.
+
+To build it, run:
+
+$ git clone https://github.com/facebook/rocksdb.git
+$ cd rocksdb
+$ make -j16 db_bench DEBUG_LEVEL=0
+If you see an error about needing to install "gflags", you need to install gflags/gflags. On Debian, sudo apt-get install libgflags-dev; on macOS, brew install gflags. Then make clean. RocksDB won't relink against gflags unless you do a make clean first.
+
+To create a database with 1000 range tombstones, for example:
+
+$ ./db_bench -benchmarks=fillrandom -write_buffer_size=67108864 -level0_file_num_compaction_trigger=4 -max_background_compactions=32 -level0_slowdown_writes_trigger=8 -level0_stop_writes_trigger=12 -num_levels=4 -min_level_to_compress=2 -compression_type=zlib -compression_ratio=0.5 -block_size=16384 -open_files=10000 -target_file_size_base=1048576 -max_bytes_for_level_base=268435456 -writes_per_range_tombstone=50000 -range_tombstone_width=50000 -max_num_range_tombstones=1000 -num=50000000 -db=/tmp/SOMENAME
+It's not clear how many of these options are actually required, but they were lifted wholesale from an upstream PR with benchmarking instructions
+
+.
+
+You can then run benchmarks against the generated database:
+
+./db_bench -benchmarks=readrandom -readonly -use_existing_db=true -open_files=10000 -num=50000000 -reads=1000000 -cache_size=1073741824 -threads=32 -db=/tmp/SOMENAME
+Make sure -use_existing_db=true is specified. The default creates a blank empty database in the database folder, even if one already exists.
+
+

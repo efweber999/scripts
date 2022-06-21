@@ -1,0 +1,20 @@
+sudo cp -f /usr/local/lib64/libplasma.so.500.0.0 /usr/lib64/libplasma.so.500.0.0
+sudo cp -f /usr/local/lib64/libarrow.so.500.0.0 /usr/lib64/libarrow.so.500.0.0
+sudo cp -f /usr/local/lib64/libarrow_testing.so.500.0.0 /usr/lib64/libarrow_testing.so.500.0.0
+sudo cp -f /usr/local/lib64/libarrow_dataset.so.500.0.0 /usr/lib64/libarrow_dataset.so.500.0.0
+sudo cp -f /usr/local/lib64/libparquet.so.500.0.0 /usr/lib64/libparquet.so.500.0.0
+sudo cp -f /usr/local/lib64/libgandiva.so.500.0.0 /usr/lib64/libgandiva.so.500.0.0
+
+sudo ln -s -f /usr/lib64/libplasma.so.500.0.0 /usr/lib64/libplasma.so.500
+sudo ln -s -f /usr/lib64/libarrow.so.500.0.0 /usr/lib64/libarrow.so.500
+sudo ln -s -f /usr/lib64/libarrow_testing.so.500.0.0 /usr/lib64/libarrow_testing.so.500
+sudo ln -s -f /usr/lib64/libarrow_dataset.so.500.0.0 /usr/lib64/libarrow_dataset.so.500
+sudo ln -s -f /usr/lib64/libparquet.so.500.0.0 /usr/lib64/libparquet.so.500
+sudo ln -s -f /usr/lib64/libgandiva.so.500.0.0 /usr/lib64/libgandiva.so.500
+
+sudo ln -s -f /usr/lib64/libplasma.so.500 /usr/lib64/libplasma.so
+sudo ln -s -f /usr/lib64/libarrow.so.500 /usr/lib64/libarrow.so
+sudo ln -s -f /usr/lib64/libarrow_testing.so.500 /usr/lib64/libarrow_testing.so
+sudo ln -s -f /usr/lib64/libarrow_dataset.so.500 /usr/lib64/libarrow_dataset.so
+sudo ln -s -f /usr/lib64/libparquet.so.500 /usr/lib64/libparquet.so
+sudo ln -s -f /usr/lib64/libgandiva.so.500 /usr/lib64/libgandiva.so

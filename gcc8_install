@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# July 2021 - Gene Weber
+#
+# Install gcc 8 on Centos7
+#
+# WARNING!!! Some documentation recommends running: scl enable devtoolset-8 bash
+# This locks up AWS!!!!
+
+sudo yum update -y
+sudo yum -y install centos-release-scl
+sudo yum -y install devtoolset-8
+source /opt/rh/devtoolset-8/enable
+
+# Install build-essentials
+sudo yum group install -y "Development Tools"
+sudo yum install -y kernel-devel
+
+if grep -q "Enable GCC version 8" ~/.bashrc; then
+  :  # Do nothing
+else
+  echo "" >> ~/.bashrc
+  echo "# Enable GCC version 8" >> ~/.bashrc
+  echo "source /opt/rh/devtoolset-8/enable" >> ~/.bashrc
+fi

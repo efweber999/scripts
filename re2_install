@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Install Google RE2.
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export TEMP_SW_DIR="${TEMP_SW_DIR:-$HOME/temp_sw}"
+
+cd $TEMP_SW_DIR
+git clone https://github.com/google/re2.git
+cd re2
+
+make
+sudo make install
+make testinstall
+

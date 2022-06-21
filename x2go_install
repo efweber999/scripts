@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# Install x2go on ubuntu EC2 instance. (server) Client is already installed on AWS workspace.
+#
+
+#Install x2go packages.
+sudo apt install x2goserver x2goserver-common x2goserver-extensions x2goserver-fmbindings -y
+
+# Install xfce lightweight desktop environment
+sudo apt install xfce4 perl -y
+
+# Install google Chrome 
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome*.deb
+rm google-chrome-stable_current_amd64.deb
+
+# Reboot EC2 Instance
+
+# Launch X2GO client on AWS Workspace under "Applications", "Internet".
+

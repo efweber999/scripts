@@ -1,0 +1,53 @@
+#
+# January 2022 - Gene Weber
+#
+# Here is how to setup GCC selection. Do an ls redirecting output to this file,
+# and use the information to create the commands below.
+# 
+# ls -larth `which gcc`* > /nfs/scripts/ubuntu_gcc_alternatives
+# lrwxrwxrwx 1 root root 12 May 20  2019 /usr/bin/gcc-ranlib -> gcc-ranlib-7
+# lrwxrwxrwx 1 root root  8 May 20  2019 /usr/bin/gcc-nm -> gcc-nm-7
+# lrwxrwxrwx 1 root root  8 May 20  2019 /usr/bin/gcc-ar -> gcc-ar-7
+# lrwxrwxrwx 1 root root  5 May 20  2019 /usr/bin/gcc -> gcc-7
+# lrwxrwxrwx 1 root root 29 Dec  4  2019 /usr/bin/gcc-ranlib-7 -> x86_64-linux-gnu-gcc-ranlib-7
+# lrwxrwxrwx 1 root root 25 Dec  4  2019 /usr/bin/gcc-nm-7 -> x86_64-linux-gnu-gcc-nm-7
+# lrwxrwxrwx 1 root root 25 Dec  4  2019 /usr/bin/gcc-ar-7 -> x86_64-linux-gnu-gcc-ar-7
+# lrwxrwxrwx 1 root root 22 Dec  4  2019 /usr/bin/gcc-7 -> x86_64-linux-gnu-gcc-7
+# lrwxrwxrwx 1 root root 30 Apr 28  2021 /usr/bin/gcc-ranlib-11 -> x86_64-linux-gnu-gcc-ranlib-11
+# lrwxrwxrwx 1 root root 26 Apr 28  2021 /usr/bin/gcc-nm-11 -> x86_64-linux-gnu-gcc-nm-11
+# lrwxrwxrwx 1 root root 26 Apr 28  2021 /usr/bin/gcc-ar-11 -> x86_64-linux-gnu-gcc-ar-11
+# lrwxrwxrwx 1 root root 23 Apr 28  2021 /usr/bin/gcc-11 -> x86_64-linux-gnu-gcc-11
+# 
+# ls -larth `which g++`* >> /nfs/scripts/ubuntu_gcc_alternatives
+# lrwxrwxrwx 1 root root  5 May 20  2019 /usr/bin/g++ -> g++-7
+# lrwxrwxrwx 1 root root 22 Dec  4  2019 /usr/bin/g++-7 -> x86_64-linux-gnu-g++-7
+# lrwxrwxrwx 1 root root 23 Apr 28  2021 /usr/bin/g++-11 -> x86_64-linux-gnu-g++-11
+# 
+
+# Give largest value to the one you want to be the default. Can switch using:
+# update-alternatives --config gcc
+
+# Setup GCC-10 with a value of 75 (largest)
+sudo update-alternatives \
+--install /usr/bin/gcc gcc /usr/bin/gcc-10 75 \
+--slave /usr/bin/g++ g++ /usr/bin/g++-10 \
+--slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-10 \
+--slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-10 \
+--slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-10
+
+# Setup GCC-11 with a value of 50 (medium)
+sudo update-alternatives \
+--install /usr/bin/gcc gcc /usr/bin/gcc-11 50 \
+--slave /usr/bin/g++ g++ /usr/bin/g++-11 \
+--slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-11 \
+--slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-11 \
+--slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-11
+
+# Setup GCC-7 with a value of 25 (smaller)
+sudo update-alternatives \
+--install /usr/bin/gcc gcc /usr/bin/gcc-7 25 \
+--slave /usr/bin/g++ g++ /usr/bin/g++-7 \
+--slave /usr/bin/gcc-ranlib gcc-ranlib /usr/bin/gcc-ranlib-7 \
+--slave /usr/bin/gcc-nm gcc-nm /usr/bin/gcc-nm-7 \
+--slave /usr/bin/gcc-ar gcc-ar /usr/bin/gcc-ar-7
+

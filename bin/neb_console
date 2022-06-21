@@ -1,0 +1,3 @@
+#!/bin/bash
+# $1 and $2 all for options. Don't have to be used.
+sudo /home/ubuntu/software/nebula-console/nebula-console -addr=127.0.0.1 -port 9669 -u root -p anything $1 $2

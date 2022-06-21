@@ -1,0 +1,23 @@
+#
+# February 2022 - Gene Weber
+#
+# How to create, mount, and unmount a RAM disk.
+#
+
+# First run htop to see how much RAM is available. Depending on total size don't use more than
+# 85% - 90%.
+
+htop
+
+# Can run this script with correct size to create and mount RAM disk /mnt/ram
+#!/bin/bash
+if [ "$(mount | grep -o "/mnt/ram")" != "/mnt/ram" ]; then
+  sudo mkdir -p /mnt/ram
+  sudo mount -t ramfs -o size=1g ramfs /mnt/ram
+  sudo chown -R $(whoami):$(whoami) /mnt/ram
+fi
+mount | grep ram
+
+# Here is a script to unmount the disk.
+#!/bin/bash
+sudo umount /mnt/ram

@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Upgrade openssl version. Used the instruction found here.
+# Reference -> https://cloudwafer.com/blog/installing-openssl-on-centos-7/
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+sudo yum upgrade
+sudo yum update
+
+openssl version -a
+# Centos7 = OpenSSL 1.0.2k-fips  26 Jan 2017
+
+sudo yum install -y perl-core zlib-devel
+cd /usr/local/src/
+sudo wget https://www.openssl.org/source/openssl-1.1.1c.tar.gz
+sudo tar -xvf openssl-1.1.1c.tar.gz
+cd openssl-1.1.1c
+sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+sudo make
+sudo make test
+sudo make install
+
+cd /etc/ld.so.conf.d/
+sudo touch openssl-1.1.1c.conf
+sudo chmod 644 openssl-1.1.1c.conf
+sudo echo "/usr/local/ssl/lib" > openssl-1.1.1c.conf
+sudo ldconfig -v
+
+sudo mv /bin/openssl /bin/openssl.backup
+
+if [ ! -f /etc/profile.d/openssl.sh ]; then
+  sudo touch /etc/profile.d/openssl.sh
+  sudo chmod 777 /etc/profile.d/openssl.sh
+  sudo echo "#Set OPENSSL_PATH" > /etc/profile.d/openssl.sh
+  sudo echo 'OPENSSL_PATH="/usr/local/ssl/bin"' >> /etc/profile.d/openssl.sh
+  sudo echo "export OPENSSL_PATH" >> /etc/profile.d/openssl.sh
+  sudo echo "PATH=\$PATH:\$OPENSSL_PATH" >> /etc/profile.d/openssl.sh
+  sudo echo "export PATH" >> /etc/profile.d/openssl.sh
+fi
+source /etc/profile.d/openssl.sh
+
+export OPENSSL_ROOT_DIR=/usr/local/ssl
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ssl/lib
+if grep -q "OpenSSL environment variables" ~/.bashrc; then
+  :  # Do nothing
+else
+  echo "" >> ~/.bashrc
+  echo "# Set OpenSSL environment variables" >> ~/.bashrc
+  echo "export OPENSSL_ROOT_DIR=/usr/local/ssl" >> ~/.bashrc
+  echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ssl/lib" >> ~/.bashrc
+fi
+
+# Install ssl development package
+sudo yum install -y openssl-devel
+
+which openssl
+echo "Should be: /usr/local/ssl/bin/openssl"
+openssl version -a
+echo "Should be: OpenSSL 1.1.1c  28 May 2019"

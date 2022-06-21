@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Install Google Protocol Buffers
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export TEMP_SW_DIR="${TEMP_SW_DIR:-$HOME/temp_sw}"
+
+cd $TEMP_SW_DIR
+wget https://github.com/protocolbuffers/protobuf/releases/download/v3.17.3/protobuf-cpp-3.17.3.tar.gz
+tar -xvf protobuf-cpp-3.17.3.tar.gz
+cd  protobuf-3.17.3
+
+./configure
+make
+make check
+sudo make install
+
+# refresh shared library cache.
+sudo ldconfig 

@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# August 2021 -Gene Weber
+#
+# Setup to be able to do Python - C++ bindings
+
+# removed python36
+sudo yum erase python3
+
+# Installed Red Hat Python3.8
+sudo yum install rh-python38.x86_64 rh-python38-python-devel.x86_64
+
+# Installed Pybind11
+python -m pip install --user pybind11
+
+# Install Pybind11
+wget https://github.com/pybind/pybind11/archive/refs/heads/master.zip
+unzip master.zip
+
+# Install python tests
+python -m pip install --user pytest
+
+# Update PYTHONPATH in .bashrc
+vi .bashrc
+Add:
+export PYTHONPATH=/opt/rh/rh-python38/root/usr/lib64/python3.8/site-packages:/home/centos/.local/lib/python3.8/site-packages:/opt/rh/devtoolset-8/root/usr/lib/python2.7/site-packages:/opt/rh/devtoolset-8/root/usr/lib64/python2.7/site-packages:/opt/rh/llvm-toolset-7.0/root/usr/lib/python2.7/site-packages
+
+# Test install
+cd pybind11-master
+mkdir build
+cd build
+cmake ..
+make check -j 4

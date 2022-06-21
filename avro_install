@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# November 2021 -Gene Weber
+#
+# Install Apache Avro
+
+cd ~/software
+wget --no-check-certificate https://dlcdn.apache.org/avro/avro-1.11.0/cpp/avro-cpp-1.11.0.tar.gz
+wget --no-check-certificate https://dlcdn.apache.org/avro/avro-1.11.0/cpp/avro-cpp-1.11.0.tar.gz.asc 
+wget --no-check-certificate https://dlcdn.apache.org/avro/avro-1.11.0/cpp/avro-cpp-1.11.0.tar.gz.sha512
+gpg --verify avro-cpp-1.11.0.tar.gz.asc avro-cpp-1.11.0.tar.gz
+sha512sum avro-cpp-1.11.0.tar.gz > foo
+diff foo avro-cpp-1.11.0.tar.gz.sha512
+tar -xvf avro-cpp-1.11.0.tar.gz
+cd avro-cpp-1.11.0
+./build.sh test
+sudo ./build.sh install
+sudo cp /usr/local/lib/libavro* /usr/lib64
+sudo cp -r /usr/local/include/avro /usr/include
+
+# Could not get it to recognize snappy!

@@ -1,0 +1,117 @@
+#!/bin/bash
+#
+# August 2021 - Gene Weber
+#
+# This script takes a fresh Centos 7 Amazon EC2 instance and installs, builds and tests Apache Arrow.
+# Multiple pieces of SW must be installed and upgraded to do this.
+
+start_time=$(date)
+
+if [ ! -d $HOME/temp_sw ]; then
+  mkdir $HOME/temp_sw
+fi
+
+if [ ! -d $HOME/software ]; then
+  mkdir $HOME/software
+fi
+
+export BASE_DIR=$HOME
+export ARROW_ROOT=$BASE_DIR/arrow
+export ARROW_BUILD=$ARROW_ROOT/cpp/build
+export ARROW_SCRIPTS=$HOME/arrow-dev-stuff/scripts
+export PARQUET_TEST_DATA=$ARROW_ROOT/cpp/submodules/parquet-testing/data
+export ARROW_TEST_DATA=$ARROW_ROOT/testing/data
+export TEMP_SW_DIR=$HOME/temp_sw
+export SW_DIR=$HOME/software
+export CLANG_FORMAT_BIN=/opt/rh/llvm-toolset-7.0/root/usr/bin
+export CLANG_TIDY_BIN=/opt/rh/llvm-toolset-7.0/root/usr/bin
+export PATH=$PATH:$SW_DIR/ninja/build-cmake
+
+if grep -q "Apache Arrow" ~/.bashrc; then
+  :  # Do nothing
+else
+  echo "" >> ~/.bashrc
+  echo "# The following lines were added by the Apache Arrow installation scripts." >> ~/.bashrc
+  echo "export ARROW_ROOT=$ARROW_ROOT" >> ~/.bashrc
+  echo "export ARROW_BUILD=$ARROW_BUILD" >> ~/.bashrc
+  echo "export ARROW_SCRIPTS=$ARROW_SCRIPTS" >> ~/.bashrc
+  echo "export PARQUET_TEST_DATA=$PARQUET_TEST_DATA" >> ~/.bashrc
+  echo "export ARROW_TEST_DATA=$ARROW_TEST_DATA" >> ~/.bashrc
+  echo "export TEMP_SW_DIR=$TEMP_SW_DIR" >> ~/.bashrc
+  echo "export CLANG_FORMAT_BIN=$CLANG_FORMAT_BIN" >> ~/.bashrc
+  echo "export CLANG_TIDY_BIN=$CLANG_TIDY_BIN" >> ~/.bashrc
+  echo "export PATH=$PATH:\$SW_DIR/ninja/build-cmake" >> ~/.bashrc
+fi
+
+
+# # Install wget
+# sudo yum install -y wget 2>&1 | tee log_yum_inst
+# 
+# # Install GCC version 8.3.1
+# cd $ARROW_SCRIPTS
+# ./gcc8_install 2>&1 | tee log_gcc8_inst
+# 
+# # Upgrade OpenSSl
+# cd $ARROW_SCRIPTS
+# ./openssl_upgrade 2>&1 | tee log_openssl_upg
+# 
+# # Upgrade curl.
+# cd $ARROW_SCRIPTS
+# ./curl_upgrade 2>&1 | tee log_curl_upg
+# 
+# # Upgrade git
+# cd $ARROW_SCRIPTS
+# ./git_upgrade 2>&1 | tee log_git_upg
+# 
+# # Install cmake
+# cd $ARROW_SCRIPTS
+# ./cmake_install 2>&1 | tee log_cmake_inst
+# 
+# # Install Google RE2
+# cd $ARROW_SCRIPTS
+# ./re2_install 2>&1 | tee log_re2_inst
+# 
+# # Install Python3
+# sudo yum update
+# sudo yum install -y python36 2>&1 | tee log_python3_inst
+# 
+# # Install re2c
+# sudo yum install -y re2c 2>&1 | tee log_re2c_inst
+# 
+# # Install ninja build system
+# cd $ARROW_SCRIPTS
+# ./ninja_install 2>&1 | tee log_ninja_inst
+# 
+# # Install Google Protocol Buffers
+# cd $ARROW_SCRIPTS
+# ./gprotbuffs_install 2>&1 | tee log_gprotbuffs_inst
+# 
+# # Install LLVM version 7.0.1
+# cd $ARROW_SCRIPTS
+# ./llvm_install 2>&1 | tee log_llvm_inst
+# 
+# # Install gRPC
+# cd $ARROW_SCRIPTS
+# ./grpc_install 2>&1 | tee log_grpc_inst
+# 
+# # Install Apache Arrow
+# cd $ARROW_SCRIPTS
+# ./arrow_install 2>&1 | tee log_arrow_inst
+
+# Build Apache Arrow
+cp $ARROW_SCRIPTS/arrow_build $ARROW_ROOT/cpp
+cd $ARROW_ROOT/cpp
+sudo ./arrow_build 2>&1 | tee $ARROW_SCRIPTS/log_arrow_build
+cd $ARROW_SCRIPTS
+./copy_libs
+
+# Missing Parquet data. Just compile for release and go.
+# Test Apache Arrow
+# cd $ARROW_SCRIPTS
+# ./arrow_tests_run 2>&1 | tee log_arrow_tests
+
+echo "# End of lines added by the Apache Arrow installation scripts." >> ~/.bashrc
+
+echo ""
+echo "Script started at $start_time"
+echo "Script ended at $(date)"

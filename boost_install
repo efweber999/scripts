@@ -1,0 +1,23 @@
+#
+# May 2022 -Gene Weber
+#
+# Install Boost C++ Libraries
+# https://www.boost.org/doc/libs/1_79_0/more/getting_started/unix-variants.html
+
+cd ~/software
+wget https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.tar.bz2
+sha256sum boost_1_79_0.tar.bz2 >foo
+# Compare to SHA256 Hash at https://www.boost.org/users/history/version_1_79_0.html
+
+tar -xvf boost_1_79_0.tar.bz2
+rm boost_1_79_0.tar.bz2
+cd boost_1_79_0
+sudo cp -r boost /usr/include/c++/9
+
+# IF you want to use some of the libraries that require compiled binaries the following
+# must be done. I did NOT do this.
+./bootstrap.sh --help
+./bootstrap.sh
+./b2 -j8 install
+sudo cp lib64/lib/libboost* /usr/lib64
+

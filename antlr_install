@@ -1,0 +1,95 @@
+#!/bin/bash
+#
+# November 2021 - Gene Weber
+#
+# Install ANTLR4 C++ target
+
+#Install uuid_devel library
+wget http://mirror.centos.org/centos/7/os/x86_64/Packages/uuid-devel-1.6.2-26.el7.x86_64.rpm
+sudo yum install uuid-devel-1.6.2-26.el7.x86_64.rpm
+
+mkdir antlr4
+cd antlr4
+
+#  From the ANTLR4 download page:
+# Get Antlr4 complete jar file
+wget https://www.antlr.org/download/antlr-4.9.3-complete.jar
+
+# Get C++ source distribution
+wget https://www.antlr.org/download/antlr4-cpp-runtime-4.9.3-source.zip
+unzip antlr4-cpp-runtime-4.9.3-source.zip
+
+# Need to do work around edits as per: https://groups.google.com/g/antlr-discussion/c/8mgirwEo5c0
+vi CMakeLists.txt
+# Replace the lines:
+# find_package(PkgConfig REQUIRED)
+# pkg_check_modules(UUID REQUIRED uuid)
+# 
+# with
+# 
+# find_library(UUID_LIBRARY libuuid.so.1)
+vi runtime/CMakeLists.txt
+# Replace the lines:
+# target_link_libraries(antlr4_static ${UUID_LIBRARIES})
+# target_link_libraries(antlr4_shared ${UUID_LIBRARIES})
+#
+# with
+#
+# target_link_libraries(antlr4_static ${UUID_LIBRARY})
+# target_link_libraries(antlr4_shared ${UUID_LIBRARY})
+
+# Create a build directory
+mkdir build && mkdir run && cd build
+
+# Run cmake
+cmake .. -DANTLR_JAR_LOCATION=/home/centos/arrow-dev-stuff/db_dev/cpp/antlr4/antlr-4.9.3-complete.jar  2>&1 | tee cmake.log
+
+# Run make using all cores
+make -j16 2>&1 | tee make.log
+
+# Install the libraries.
+sudo make install 2>&1 | tee install.log
+
+# Copy library files to /usr/lib64
+sudo cp /usr/local/lib/libantlr4-runtime.so.4.9.3 /usr/lib64
+sudo cp /usr/local/lib/libantlr4-runtime.a /usr/lib64
+sudo ln -s /usr/lib64/libantlr4-runtime.so.4.9.3 /usr/lib64/libantlr4-runtime.so
+
+# Update ldlibs
+sudo ldconfig
+ldconfig -p | grep antlr4
+
+# Include /usr/local/include/antlr4-runtime/antlr4-runtime.h umbrella header in target
+# application to get everything needed to use the library.
+
+#### OLD FIRST ATTEMPT
+#  # Get Antlr jar file
+#  wget https://www.antlr.org/download/antlr-4.9.2-complete.jar
+#  sudo mv antlr-4.9.2-complete.jar /usr/local/lib
+#  
+#  vi .bashrc
+#  add: export CLASSPATH=".:/usr/local/lib/antlr-4.9.2-complete.jar:$CLASSPATH"
+#  
+#  vi antlr4
+#  add:
+#  #!/bin/bash
+#  java -jar /usr/local/lib/antlr-4.9.2-complete.jar $*
+#  
+#  vi grun
+#  #!/bin/bash
+#  java org.antlr.v4.runtime.misc/TestRig $*
+#  
+#  chmod 755 antlr4 grun 
+#  
+#  sudo mv antlr4 /usr/local/bin
+#  sudo mv grun /usr/local/bin
+#  
+#  # Install Java if not already installed.
+#  sudo yum update -y
+#  sudo yum -y install java-11-openjdk java-11-openjdk-devel
+#  
+#  sudo vi /etc/profile.d/java11.sh
+#  add: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64
+#  
+#  vi .bashrc
+#  add: export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64

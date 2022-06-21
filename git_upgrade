@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Upgrade git version.
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export TEMP_SW_DIR="${TEMP_SW_DIR:-$HOME/temp_sw}"
+
+git --version 
+
+cd $TEMP_SW_DIR
+sudo yum remove -y git
+sudo yum install -y gettext-devel perl-CPAN
+
+wget https://github.com/git/git/archive/refs/tags/v2.31.1.tar.gz
+tar xvf v2.31.1.tar.gz
+cd git-2.31.1
+
+make configure
+./configure --prefix=/usr/local
+sudo make install
+
+hash -d git # Make bash forget cached version 2>/dev/null
+git --version
+echo ""
+echo "Should be 2.31.1"
+

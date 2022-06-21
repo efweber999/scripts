@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo /usr/local/nebula/scripts/nebula.service $1 all

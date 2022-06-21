@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# installation of Visual Studio code 
+or C++  https://code.visualstudio.com/docs/setup/linux
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Download deb t package at
+https://code.visualstudio.com/download#
+# Check sha256sum
+
+# Install package
+sudo dpkg -i code_1.63.2-1639562499_amd64.deb
+

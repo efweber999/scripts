@@ -1,0 +1,22 @@
+#
+# April 5, 2022 - Gene Weber
+#
+
+The McAffee antivirus agent prevents any boot SW updates from installing correctly. To install them
+it must be stopped, and then restarted after the install.
+
+To check the status of the antivirus:
+
+sudo /opt/McAfee/ens/tp/init/mfetpd-control.sh status
+sudo /opt/McAfee/ens/esp/init/mfeespd-control.sh status
+
+If it is running then stop the services with these:
+
+sudo /opt/McAfee/ens/tp/init/mfetpd-control.sh stop
+sudo /opt/McAfee/ens/esp/init/mfeespd-control.sh stop
+
+Install software. If really foobar may need to:
+sudo apt --fix-broken install
+
+sudo /opt/McAfee/ens/esp/init/mfeespd-control.sh start
+sudo /opt/McAfee/ens/tp/init/mfetpd-control.sh start

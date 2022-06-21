@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Install cmake.
+# Download latest gzipped tar file from: https://cmake.org/download
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export TEMP_SW_DIR="${TEMP_SW_DIR:-$HOME/temp_sw}"
+
+cd $TEMP_SW_DIR
+wget https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz
+tar -xvf cmake-3.20.2.tar.gz
+cd cmake-3.20.2
+
+./bootstrap && make && sudo make install
+cmake --version

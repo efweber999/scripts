@@ -1,0 +1,19 @@
+#!/bin/bash
+# Needed to install firewall-cmd
+# sudo apt install firewalld
+sudo firewall-cmd --info-zone=public
+
+# https://www.inmotionhosting.com/support/security/how-to-stop-and-disable-firewalld/
+
+# Check Firewalld status:
+# systemctl status firewalld.service
+# Stop Firewalld for the current session:
+# sudo systemctl stop firewalld.service
+# Start Firewalld once desired:
+# sudo systemctl start firewalld
+
+# Disable Firewalld from starting at boot:
+# sudo systemctl disable firewalld
+# Enable Firewalld once desired:
+# sudo systemctl enable firewalld
+

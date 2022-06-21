@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# August 2021 -Gene Weber
+#
+# Upgrade flex to version 2.6.4
+# https://github.com/westes/flex/releases/tag/v2.6.4
+
+# Get release
+wget https://github.com/westes/flex/files/981163/flex-2.6.4.tar.gz
+tar -xvf flex-2.6.4.tar.gz 
+
+# Install help2man
+sudo yum install help2man
+
+# Install texinfo
+sudo yum install texinfo
+
+# Prepare the flex tree for building
+./autogen.sh
+
+# Build flex
+sudo ./configure 
+sudo make 
+sudo make install
+
+# Clear the bash hash so it uses the new version
+hash -d flex
+
+# translate the archaic documentation into html
+cd doc
+texi2any --html --no-split --no-headers --force -o flex.html flex.texi

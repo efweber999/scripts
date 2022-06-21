@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# August 2021 -Gene Weber
+#
+# Install gRPC (gRPC Remote Procedure Calls)
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+
+export SW_DIR="${SW_DIR:-$HOME/software}"
+cd $SW_DIR
+
+git clone --recurse-submodules -b v1.38.0 https://github.com/grpc/grpc
+
+cd grpc
+mkdir -p cmake/build
+pushd cmake/build
+cmake -DgRPC_INSTALL=ON \
+      -DgRPC_BUILD_TESTS=OFF \
+      -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
+      ../..
+make -j
+sudo make install
+popd
+mkdir -p third_party/abseil-cpp/cmake/build
+pushd third_party/abseil-cpp/cmake/build
+cmake -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
+      -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE \
+      ../..
+make -j
+sudo make install
+popd
+

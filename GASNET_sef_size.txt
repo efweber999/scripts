@@ -1,0 +1,26 @@
+
+GASNET segment size is limited by the POSIX shared memory in Linux. Need to check and expand /dev/shm
+as needed. Do not grow to more than 85% of total memory max.
+
+$ df -h /dev/shm
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            63G   60K   63G   1% /dev/shm
+
+$ sudo mount -o remount,size=75G /dev/shm
+
+$ df -h /dev/shm
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs            75G   60K   75G   1% /dev/shm
+
+sudo vi /etc/fstab
+# Added the following line
+none    /dev/shm        tmpfs   defaults,size=102G      0 0
+
+$ sudo mount -o remount /dev/shm
+
+$ df -h /dev/shm
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           102G   40K  102G   1% /dev/shm
+
+$ upcxx-run -n1 -shared-heap 100GB ./foo
+Rank: 0  shared_segment_size: 107374182400

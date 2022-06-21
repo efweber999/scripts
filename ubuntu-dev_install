@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+# January 2022 - Gene Weber
+#
+# Packages to install on a fresh Ubuntu EC2 instance.
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Force installation of gcc 11.2.0    Ubuntu 18.04 is 11.1.0
+sudo vi /etc/apt/sources.list
+# Add these lines:
+   deb http://mirrors.kernel.org/ubuntu impish main
+   # deb http://mirrors.kernel.org/ubuntu impish main
+# Reboot the EC2 instance
+apt search gcc | grep 11
+# Should now show 11.2.0 available.
+# Install gcc 11.2.0
+sudo apt install -y cpp-11 libasan6 libgcc-11-dev libubsan1 gcc-11-multilib gcc-11-doc
+# Install g++ 11.2.0
+sudo apt install -y g++-multilib glibc-doc libstdc++-11-doc 
+sudo vi /etc/apt/sources.list
+# Comment out:
+   # deb http://mirrors.kernel.org/ubuntu impish main
+   # deb http://mirrors.kernel.org/ubuntu impish main
+# Reboot the EC2 instance
+# GIVE LOTS OF TIME BEFORE DOING ANYTHING ELSE. sources.list affect seems to take minutes.
+
+
+# Add repositories for newest tools.
+sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install build-essential -y
+
+# These packages, and the suggested additional packages, are being installed to support Nebula-Graph. 
+sudo apt install -y m4 m4-doc
+sudo apt install -y unzip zip
+sudo apt install -y libreadline-dev readline-doc
+sudo apt install -y ncurses-dev ncurses-doc
+sudo apt install -y lsb-core lintian autoconf-archive gnu-standards autoconf-doc cups inetutils-inetd \
+ update-inetd xpp smbclient dh-make dwz rpm-i18n gettext-doc libasprintf-dev \
+ libgettextpo-dev lrzip libtool-doc lsb \
+ mailutils-mh mailutils-doc libmail-box-perl elfutils rpmlint
+sudo apt install -y cmake cmake-doc ninja-build lrzip
+sudo apt install -y libbz2-dev
+
+#
+# Install newer tools into ubuntu 18.04
+#
+
+# Install Python 3.8
+sudo apt install -y python3.8 python3.8-venv binfmt-support
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Setup Altenatives for Python
+echo ""
+echo "Verify the default versions of Python are 2.7/3.6, and then run /nfs/scripts/ubuntu_python_alternatives"
+echo "to change default to python3.8. Can over-ride default with: update-alternatives --config python"
+echo ""
+
+# # Setup Altenatives for GCC
+# echo ""
+# echo "Verify the default version of GCC is 7, and then run /nfs/scripts/ubuntu_gcc_alternatives"
+# echo "to change default to GCC 11. Can over-ride default with: update-alternatives --config gcc"
+# echo ""

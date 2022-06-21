@@ -1,0 +1,20 @@
+#
+# June 2022 - Gene Weber
+#
+# Install LLVM and Clang from source code.
+# https://llvm.org/docs/GettingStarted.html
+# https://clang.llvm.org/get_started.html
+#
+
+# Do a shallow git clone to get only the latest version.
+cd ~/software
+git clone --depth=1 https://github.com/llvm/llvm-project.git
+cd llvm-project
+mkdir build && cd build
+
+cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
+
+make -j 8 2>&1 | tee make.log
+
+# Didn't do this yet.
+sudo make install 2>&1 | tee install.log

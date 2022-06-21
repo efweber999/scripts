@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# August 2021 -Gene Weber
+#
+# Install Swig (Simplified Wrapper and Interface Generator)
+
+# Must install Pcre (Perl Compatible Regular Expressions)
+wget https://ftp.pcre.org/pub/pcre/pcre-8.45.tar.gz
+tar -xvf pcre-8.45.tar.gz 
+cd pcre-8.45
+./configure 2>&1 | tee config.log
+make 2>&1 | tee make.log
+sudo make install 2>&1 | tee install.log
+make installcheck 2>&1 | tee check.log
+
+# Need Python development kit installed.
+sudo yum install python3-devel
+
+# Install Swig
+wget http://prdownloads.sourceforge.net/swig/swig-4.0.2.tar.gz
+tar -xvf swig-4.0.2.tar.gz
+cd swig-4.0.2
+./configure 2>&1 | tee config.log
+make 2>&1 | tee make.log
+sudo make install 2>&1 | tee install.log
+

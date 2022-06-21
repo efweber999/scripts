@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Install Ninja build system.
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export SW_DIR="${SW_DIR:-$HOME/software}"
+
+cd $SW_DIR
+git clone git://github.com/ninja-build/ninja.git
+cd ninja
+git checkout release
+
+cmake -Bbuild-cmake -H.
+cmake --build build-cmake
+./build-cmake/ninja_test
+
+ninja --version

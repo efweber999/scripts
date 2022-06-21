@@ -1,0 +1,29 @@
+
+To set the number of allowed open system files and memory accessible to a program,
+edit the /etc/security/limits.conf file.
+
+sudo vi /etc/security/limits.conf
+
+Added the following lines: 
+
+# Set number of allowed open files to 1M
+   *               soft    nofile        1048576
+   *               hard    nofile        1048576
+# Set amount of program memory to 100GB
+   *               soft    stack         100663296
+   *               hard    stack         100663296
+
+Show all limits:
+limit -a 
+
+Show Hard limit for number of files:
+limit -Hn
+
+Show Soft limit for number of files:
+limit -Sn
+
+Show Hard limit for Stack memory:
+limit -Hs
+
+Show Soft limit for Stack memory:
+limit -Ss

@@ -1,0 +1,72 @@
+#!/bin/bash
+#
+# September 2021 -Gene Weber
+# April 2022 -Gene Weber
+#
+# Install Unified Parallel C++  (UPC++)
+
+cd ~/software
+wget https://bitbucket.org/berkeleylab/upcxx/downloads/upcxx-2022.3.0.tar.gz
+tar -xvf upcxx-2022.3.0.tar.gz 
+cd upcxx-2022.3.0
+mkdir build && cd build
+../configure --disable-ibv --disable-aries
+make -j8 all 2>&1 | tee make.log
+
+# Setup GASNET env variables so checks pass.
+export GASNET_SPAWNFN=S
+export GASNET_SSH_CMD=ssh
+export GASNET_SSH_OPTIONS=-x
+export GASNET_SSH_SERVERS="10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246"
+
+# Must enable password-less ssh between nodes
+# Generated RSA key pairs on each node. Used default values.
+ssh-keygen -t rsa
+# Copy public key generated on all nodes into the ~/.ssh/authorized_keys file on every node.
+# So all ~/.ssh/authorized_keys files are the same and have all public keys.
+
+# NOTE: Only compilation of tests will pass unless the tests are copied to the build directory on the
+# other nodes. cp test-*-udp /nfs/temp then cp /nfs/temp/* .
+make check
+
+sudo make install 2>&1 | tee inst.log
+
+# Set Install location and update PATH.
+export UPCXX_INSTALL=/usr/local/upcxx
+export PATH=$PATH:/usr/local/upcxx/bin
+
+# Add all of this to the ~/.bashrc
+    export PATH=$PATH:/usr/local/upcxx/bin
+    
+    # GASNET stuff needed for UPC++
+    export GASNET_SPAWNFN=S
+    export GASNET_SSH_CMD=ssh
+    export GASNET_SSH_OPTIONS=-x
+    export GASNET_SSH_SERVERS="10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246 10.114.89.208 10.114.89.232 10.114.89.246"
+    
+    # For Unified Parallel C++
+    export UPCXX_INSTALL=/usr/local/upcxx
+    # Free memory is 131,260,989,440 bytes. Divided by 8 cores is 16,407,623,680 bytes. 13GB is ~85% of that.
+    # export UPCXX_SHARED_HEAP_SIZE='13GB'
+    export UPCXX_SHARED_HEAP_SIZE='101GB'
+    #export GASNET_MAX_SEGSIZE='13GB/P'
+    export GASNET_MAX_SEGSIZE='0.85/H'
+    export UPCXX_NETWORK=udp
+    # /usr/local/upcxx/bin inserted in PATH above
+
+# These tests should now pass!
+make tests-clean test_install 2>&1 | tee test_inst.log
+
+# Not sure if this is necessary. Does check that passwordless ssh works.
+ssh from every node to every other node.
+
+# Examples in installation at:
+software/upcxx-2022.3.0/example
+# To download the tutorials and examples directories
+git clone https://bitbucket.org/berkeleylab/upcxx-extras.git
+
+# REMEMBER: The executable must exist on every node at the same location. Or on a shared filesystem.
+# NOTE!!!! The executable must be compiled on one node and copied to the others. COMPILING ON 
+#          DIFFERENT NODES FAILS!!! The execuatbles are NOT identical!!
+
+# REMEBER: Wont work with firewall on!!

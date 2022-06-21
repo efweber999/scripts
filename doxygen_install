@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# Installation of Doxygen     https://www.doxygen.nl/manual/install.html#install_bin_unix
+#
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+mkdir doxygen && cd doxygen
+wget https://www.doxygen.nl/files/doxygen-1.9.3.linux.bin.tar.gz
+tar -xvf doxygen-1.9.3.linux.bin.tar.gz
+export PATH=$PATH:/home/ubuntu/doxygen/doxygen-1.9.3/bin
+# Add path to .bashrc

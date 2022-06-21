@@ -1,0 +1,13 @@
+#
+# May 2022 - Gene Weber
+#
+# Install library for io_uring
+# https://github.com/axboe/liburing
+#
+
+cd software
+git clone https://github.com/axboe/liburing.git
+cd liburing
+make 2>&1 | tee make.log
+sudo make install 2>&1 | tee install.log
+

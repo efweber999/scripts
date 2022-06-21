@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# August 2021 - Gene Weber
+#
+# Install Arrow in Centos 7.
+# Check for latest at -> https://arrow.apache.org/install/
+
+# Set installation base directory
+BASE_DIR="${BASE_DIR:-$HOME}"
+
+sudo yum install -y epel-release || sudo yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1).noarch.rpm
+sudo yum install -y https://apache.jfrog.io/artifactory/arrow/centos/$(cut -d: -f5 /etc/system-release-cpe | cut -d. -f1)/apache-arrow-release-latest.rpm
+sudo yum install -y --enablerepo=epel arrow-devel # For C++
+sudo yum install -y --enablerepo=epel arrow-glib-devel # For GLib (C)
+sudo yum install -y --enablerepo=epel arrow-dataset-devel # For Apache Arrow Dataset C++
+sudo yum install -y --enablerepo=epel parquet-devel # For Apache Parquet C++
+sudo yum install -y --enablerepo=epel parquet-glib-devel # For Apache Parquet GLib (C)
+
+# Install the actual Arrow files into an arrow directory structure.
+cd $BASE_DIR
+git clone --single-branch --branch release-5.0.0 https://github.com/apache/arrow.git
+mv arrow arrow-release-5.0.0
+# Note 7/29/2021 cpp/submodules/parquet-testing has no data subdirectory
+
+echo ""
+echo "To build an Arrow release, copy the build_all script to $ARROW_ROOT/cpp and run it."
+echo ""
+

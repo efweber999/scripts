@@ -1,0 +1,112 @@
+#!/bin/bash
+#
+# August 2021 - Gene Weber
+#
+# Run this script in the /"arrow"/cpp directory to build a debug or release library.
+# It includes all the switches I know of, but there may be others, and new ones may be added.
+# Reference -> https://arrow.apache.org/docs/developers/cpp/building.html
+#
+# Note Gandiva dependencies.
+#
+
+source /home/centos/.bashrc  # Get any env vars set by previous scripts.
+export ARROW_ROOT="${ARROW_ROOT:-/home/centos/arrow}"
+export ARROW_BUILD="${ARROW_BUILD:-$ARROW_ROOT/cpp/build}"
+
+: ${ARROW_DEPENDENCY_SOURCE:=BUNDLED}
+
+mkdir $ARROW_BUILD
+cd $ARROW_BUILD
+
+NPROC=$(nproc)
+
+cmake $ARROW_ROOT/cpp -G Ninja \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DARROW_EXTRA_ERROR_CONTEXT=ON \
+    -DARROW_BUILD_SHARED=ON \
+    -DARROW_BUILD_STATIC=OFF \
+    -DARROW_COMPUTE=ON \
+    -DARROW_CSV=ON \
+    -DARROW_CUDA=OFF \
+    -DARROW_DATASET=ON \
+    -DARROW_DEPENDENCY_SOURCE=${ARROW_DEPENDENCY_SOURCE} \
+    -DARROW_DEPENDENCY_USE_SHARED=ON \
+    -DARROW_FILESYSTEM=ON \
+    -DARROW_FLIGHT=ON \
+    -DARROW_GANDIVA=ON \
+    -DARROW_GANDIVA_JAVA=OFF \
+    -DARROW_HDFS=OFF \
+    -DARROW_HIVESERVER2=OFF \
+    -DARROW_IPC=ON \
+    -DARROW_JEMALLOC=OFF \
+    -DARROW_MIMALLOC=OFF \
+    -DARROW_JSON=OFF \
+    -DARROW_ORC=OFF \
+    -DARROW_PARQUET=ON \
+    -DARROW_PLASMA=ON \
+    -DARROW_PLASMA_JAVA_CLIENT=OFF \
+    -DARROW_PYTHON=OFF \
+    -DARROW_S3=OFF \
+    -DARROW_WITH_BROTLI=ON \
+    -DARROW_WITH_BZ2=ON \
+    -DARROW_WITH_LZ4=ON \
+    -DARROW_WITH_SNAPPY=ON \
+    -DARROW_WITH_ZLIB=ON \
+    -DARROW_WITH_ZSTD=ON \
+    -DORC_SOURCE=BUNDLED \
+    -DARROW_BUILD_BENCHMARKS=OFF \
+    -DARROW_BUILD_EXAMPLES=OFF \
+    -DARROW_BUILD_INTEGRATION=OFF \
+    -DARROW_BUILD_UTILITIES=OFF \
+    -DARROW_BUILD_TESTS=OFF \
+    -DARROW_ENABLE_TIMING_TESTS=OFF \
+    -DARROW_FUZZING=OFF \
+    -DARROW_USE_ASAN=OFF \
+    -DARROW_USE_TSAN=OFF \
+    -DARROW_USE_UBSAN=OFF \
+    $ARROW_CMAKE_OPTIONS
+#    -DCMAKE_BUILD_TYPE=Debug \
+#    -DCMAKE_BUILD_TYPE=Release \
+#    -DARROW_BUILD_TESTS=ON \
+#    -DARROW_BUILD_TESTS=OFF \
+
+ninja -j $NPROC
+ninja install
+
+
+# -DARROW_EXTRA_ERROR_CONTEXT=ON: Compile the libraries with extra debugging information on error checks inside the RETURN_NOT_OK macro.
+# -DARROW_COMPUTE=ON: Computational kernel functions and other support
+# -DARROW_CSV=ON: CSV reader module
+# -DARROW_CUDA=ON: CUDA integration for GPU development. Depends on NVIDIA CUDA toolkit. The CUDA toolchain used to build the library can be customized by using the $CUDA_HOME environment variable.
+# -DARROW_DATASET=ON: Dataset API, implies the Filesystem API
+# -DARROW_FILESYSTEM=ON: Filesystem API for accessing local and remote filesystems
+# -DARROW_FLIGHT=ON: Arrow Flight RPC system, which depends at least on gRPC
+# -DARROW_GANDIVA=ON: Gandiva expression compiler, depends on LLVM, Protocol Buffers, and re2
+# -DARROW_GANDIVA_JAVA=ON: Gandiva JNI bindings for Java
+# -DARROW_HDFS=ON: Arrow integration with libhdfs for accessing the Hadoop Filesystem
+# -DARROW_HIVESERVER2=ON: Client library for HiveServer2 database protocol
+# -DARROW_JSON=ON: JSON reader module
+# -DARROW_ORC=ON: Arrow integration with Apache ORC
+# -DARROW_PARQUET=ON: Apache Parquet libraries and Arrow integration
+# -DARROW_PLASMA=ON: Plasma Shared Memory Object Store
+# -DARROW_PLASMA_JAVA_CLIENT=ON: Build Java client for Plasma
+# -DARROW_PYTHON=ON: Arrow Python C++ integration library (required for building pyarrow). This library must be built against the same Python version for which you are building pyarrow. NumPy must also be installed. Enabling this option also enables ARROW_COMPUTE, ARROW_CSV, ARROW_DATASET, ARROW_FILESYSTEM, ARROW_HDFS, and ARROW_JSON.
+# -DARROW_S3=ON: Support for Amazon S3-compatible filesystems
+# -DARROW_WITH_BZ2=ON: Build support for BZ2 compression
+# -DARROW_WITH_ZLIB=ON: Build support for zlib (gzip) compression
+# -DARROW_WITH_LZ4=ON: Build support for lz4 compression
+# -DARROW_WITH_SNAPPY=ON: Build support for Snappy compression
+# -DARROW_WITH_ZSTD=ON: Build support for ZSTD compression
+# -DARROW_WITH_BROTLI=ON: Build support for Brotli compression
+# -DARROW_IPC=ON: build the IPC extensions
+# -DARROW_BUILD_BENCHMARKS=ON: Build executable benchmarks.
+# -DARROW_BUILD_EXAMPLES=ON: Build examples of using the Arrow C++ API.
+# -DARROW_BUILD_INTEGRATION=ON: Build additional executables that are used to exercise protocol interoperability between the different Arrow implementations.
+# -DARROW_BUILD_UTILITIES=ON: Build executable utilities.
+# -DARROW_BUILD_TESTS=ON: Build executable unit tests.
+# -DARROW_ENABLE_TIMING_TESTS=ON: If building unit tests, enable those unit tests that rely on wall-clock timing (this flag is disabled on CI because it can make test results flaky).
+# -DARROW_FUZZING=ON: Build fuzz targets and related executables.
+# -DARROW_USE_ASAN=ON: Enable Address Sanitizer to check for memory leaks, buffer overflows or other kinds of memory management issues.
+# -DARROW_USE_TSAN=ON: Enable Thread Sanitizer to check for races in multi-threaded code.
+# -DARROW_USE_UBSAN=ON: Enable Undefined Behavior Sanitizer to check for situations which trigger C++ undefined behavior.
+

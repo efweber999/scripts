@@ -1,0 +1,26 @@
+#
+# June 2022 - Gene Weber
+#
+# Install pybind11 - https://pybind11.readthedocs.io/en/stable/index.html
+#
+
+# At the time of installation v2.9.2 was the current stable release.
+cd ~/software
+git clone --branch v2.9 https://github.com/pybind/pybind11.git
+
+sudo apt install python3-dev
+    Reading package lists... Done
+    Building dependency tree       
+    Reading state information... Done
+    python3-dev is already the newest version (3.8.2-0ubuntu2).
+
+cd pybind11
+mkdir build && cd build
+
+/usr/bin/python3.8 -m pip install pytest
+
+cmake -DDOWNLOAD_CATCH=ON -DDOWNLOAD_EIGEN=ON .. 2>&1 | tee make.log
+
+make check -j 8 2>&1 | tee check.log
+
+sudo make install 2>&1 | tee install.log

@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# July 2021 - Gene Weber
+#
+# Install llvm on Centos 7
+
+sudo yum update -y
+sudo yum install -y centos-release-scl
+sudo yum install -y llvm-toolset-7.0
+sudo yum install -y llvm-toolset-7-clang-tools-extra
+sudo yum install -y llvm-toolset-7.0-clang-devel
+sudo yum install -y llvm-toolset-7.0-git-clang-format
+sudo yum install -y llvm-toolset-7.0-clang-analyzer
+sudo yum install -y llvm-toolset-7.0-llvm-devel.x86_64
+sudo yum install -y llvm-toolset-7.0-build.x86_64
+sudo yum install -y llvm-toolset-7.0-lld-devel.x86_64
+sudo yum install -y llvm-toolset-7.0-lldb-devel.x86_64
+sudo yum install -y llvm-toolset-7.0-llvm-static.x86_64
+
+# Enable the toolset
+source /opt/rh/llvm-toolset-7.0/enable
+if grep -q "Enable llvm-toolset-7.0" ~/.bashrc; then
+  :  # Do nothing
+else
+  echo "# Enable llvm-toolset-7.0" >> ~/.bashrc
+  echo "source /opt/rh/llvm-toolset-7.0/enable" >> ~/.bashrc
+fi
+
+# In order to view the individual components included in this collection, including
+# additional development tools, you can run:
+# sudo yum list llvm-toolset-7.0\*
+

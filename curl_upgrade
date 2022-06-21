@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# July 2021 -Gene Weber
+#
+# Upgrade curl version.
+
+source ~/.bashrc  # Get any env vars set by previous scripts.
+export TEMP_SW_DIR="${TEMP_SW_DIR:-$HOME/temp_sw}"
+
+curl --version 
+
+cd $TEMP_SW_DIR
+wget https://curl.se/download/curl-7.77.0.tar.gz
+tar xvf curl-7.77.0.tar.gz
+cd curl-7.77.0
+
+echo ""
+echo "Check log_curl_upg file for openssl inconsistencies."
+echo ""
+./configure --with-ssl=/usr/local/ssl
+make
+sudo make install
+
+hash -d curl # Make bash forget cached version 2>/dev/null
+echo ""
+curl --version
+echo ""
+echo "Should be: curl 7.77.0"
+echo ""
+
+sudo mv /usr/bin/curl /usr/bin/old_curl 2>/dev/null

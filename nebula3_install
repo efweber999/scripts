@@ -1,0 +1,82 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# installation of nebula-graph 3.0.0 in ubuntu 20.04
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Install zlib-dev
+sudo apt install libghc-zlib-dev -y
+
+# No longer needed!!!!
+#    # Nebula 3.0 requires double-conversion to be installed
+#    git clone https://github.com/google/double-conversion.git
+#    cd double-conversion
+#    cmake .
+#    make prefix=/usr libdir=/usr/lib
+#    sudo make install prefix=/usr libdir=/usr
+
+# Install nebula-graph 3.0.0
+cd ~/software
+git clone --branch v3.0.0 https://github.com/vesoft-inc/nebula.git
+cd nebula
+mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release .. 2>&1 | tee cmake.log
+  # or: 
+  cmake -clean-first -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug ..
+  make clean
+make -j16 2>&1 | tee make.log
+sudo make install 2>&1 | tee install.log
+
+# Need to change the nmber of open files limit.
+ulimit -Hn 1048576
+# To make it permanent
+sudo vi /etc/security/limits.conf
+# Add these two lines:
+   *               soft    nofile        1048576
+   *               hard    nofile        1048576
+ 
+
+# Need to "install" config files.
+sudo cp /usr/local/nebula/etc/nebula-metad.conf.default /usr/local/nebula/etc/nebula-metad.conf
+sudo cp /usr/local/nebula/etc/nebula-graphd.conf.default /usr/local/nebula/etc/nebula-graphd.conf
+sudo cp /usr/local/nebula/etc/nebula-storaged.conf.default /usr/local/nebula/etc/nebula-storaged.conf
+
+# Make script to launch the three nebula daemons.
+# neb_daemons start        neb_daemons status        neb_daemons stop
+cd ~/bin
+vi neb_daemons
+# Add lines:
+   #!/bin/bash
+   sudo /usr/local/nebula/scripts/nebula.service $1 all
+chmod 755 neb_daemons
+
+# Compile and install nebula console. nebula console is the CLI to nebula graph.
+cd ~/software
+# Install go
+mkdir go && cd go
+wget https://go.dev/dl/go1.17.6.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.17.6.linux-amd64.tar.gz
+export PATH=$PATH:/usr/local/go/bin
+vi ~/.bashrc
+# Add the following line:
+   export PATH=$PATH:/usr/local/go/bin
+
+
+# Install nebula-console
+cd ~/software
+git clone https://github.com/vesoft-inc/nebula-console.git
+cd nebula-console
+make
+
+# Make a script to easily launch nebula-console
+cd ~/bin
+vi neb_console
+# Insert the following line:
+   #!/bin/bash
+   /home/ubuntu/software/nebula-console/nebula-console -addr=127.0.0.1 -port 9669 -u root -p anything $1 $2
+chmod 755 neb_console

@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# November 2021 -Gene Weber
+#
+# Install snappy compression libraries
+# https://github.com/google/snappy
+
+# This was a huge waste of time. Avro still doesn'r recognize that snappy is available,
+# and the lib file is still /usr/lib64/libsnappy.so.1.1.4 instead of 1.1.9.
+
+cd ~/software
+git clone https://github.com/google/snappy.git
+cd snappy
+git submodule update --init
+mkdir build
+cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build .
+# I think this was a mistake!!!! May have overwritten and/or put junk in /user/lib64.
+# export CMAKE_INSTALL_BINDIR=/usr/local
+# export CMAKE_INSTALL_LIBDIR=/usr/lib64
+# cmake SNAPPY_INSTALL ../ 2>&1 | tee snappy_build.log
+# sudo make install 2>&1 | tee snappy_install.log
+
+
+# snappy_benchmark snappy_test_tool snappy_unittest

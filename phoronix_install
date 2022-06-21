@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# Installation of the Phoronix test suite - https://www.phoronix-test-suite.com/?k=downloads
+#
+
+mkdir phoronix && cd phoronix
+wget https://phoronix-test-suite.com/releases/repo/pts.debian/files/phoronix-test-suite_10.8.1_all.deb
+sudo apt install php-cli php-common php-xml php7.4-cli php7.4-common php7.4-json php7.4-opcache php7.4-readline php7.4-xml
+sudo dpkg -i phoronix-test-suite_10.8.1_all.deb
+
+phoronix-test-suite benchmark rocksdb

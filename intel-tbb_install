@@ -1,0 +1,20 @@
+#
+# April 5, 2022  - Gene Weber
+#
+# After much hand wringing decided to build TBB from the github repository. Intel just wanted to
+# bundle too much shit in their runtime.
+#
+
+cd /software
+# Clone oneTBB repository
+git clone https://github.com/oneapi-src/oneTBB.git
+cd oneTBB
+# Create binary directory for out-of-source build
+mkdir build && cd build
+# Configure: disable TBB_TEST to avoid tests build
+cmake -DTBB_TEST=OFF ..
+# Build
+cmake --build .
+# Install
+sudo cmake --install .
+

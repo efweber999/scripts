@@ -1,0 +1,1348 @@
+-- Building using CMake version: 3.20.2
+-- The C compiler identification is GNU 8.3.1
+-- The CXX compiler identification is GNU 8.3.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /opt/rh/devtoolset-8/root/usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /opt/rh/devtoolset-8/root/usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Arrow version: 5.0.0 (full: '5.0.0')
+-- Arrow SO version: 500 (full: 500.0.0)
+-- clang-tidy not found
+-- clang-format not found
+-- Could NOT find ClangTools (missing: CLANG_FORMAT_BIN CLANG_TIDY_BIN) 
+-- infer not found
+fatal: not a git repository (or any of the parent directories): .git
+-- Found Python3: /opt/rh/rh-python38/root/usr/bin/python3.8 (found version "3.8.6") found components: Interpreter 
+-- Found cpplint executable at /home/centos/arrow-release-5.0.0/cpp/build-support/cpplint.py
+-- System processor: x86_64
+-- Performing Test CXX_SUPPORTS_SSE4_2
+-- Performing Test CXX_SUPPORTS_SSE4_2 - Success
+-- Performing Test CXX_SUPPORTS_AVX2
+-- Performing Test CXX_SUPPORTS_AVX2 - Success
+-- Performing Test CXX_SUPPORTS_AVX512
+-- Performing Test CXX_SUPPORTS_AVX512 - Success
+-- Arrow build warning level: PRODUCTION
+Using ld linker
+Configured for RELEASE build (set with cmake -DCMAKE_BUILD_TYPE={release,debug,...})
+-- Build Type: RELEASE
+-- Using BUNDLED approach to find dependencies
+-- ARROW_ABSL_BUILD_VERSION: 0f3bb466b868b523cf1dc9b2aaaed65c77b28862
+-- ARROW_AWSSDK_BUILD_VERSION: 1.8.133
+-- ARROW_AWS_CHECKSUMS_BUILD_VERSION: v0.1.10
+-- ARROW_AWS_C_COMMON_BUILD_VERSION: v0.5.10
+-- ARROW_AWS_C_EVENT_STREAM_BUILD_VERSION: v0.1.5
+-- ARROW_BOOST_BUILD_VERSION: 1.75.0
+-- ARROW_BROTLI_BUILD_VERSION: v1.0.9
+-- ARROW_BZIP2_BUILD_VERSION: 1.0.8
+-- ARROW_CARES_BUILD_VERSION: 1.17.1
+-- ARROW_GBENCHMARK_BUILD_VERSION: v1.5.2
+-- ARROW_GFLAGS_BUILD_VERSION: v2.2.2
+-- ARROW_GLOG_BUILD_VERSION: v0.4.0
+-- ARROW_GRPC_BUILD_VERSION: v1.35.0
+-- ARROW_GTEST_BUILD_VERSION: 1.10.0
+-- ARROW_JEMALLOC_BUILD_VERSION: 5.2.1
+-- ARROW_LZ4_BUILD_VERSION: v1.9.3
+-- ARROW_MIMALLOC_BUILD_VERSION: v1.7.2
+-- ARROW_ORC_BUILD_VERSION: 1.6.6
+-- ARROW_PROTOBUF_BUILD_VERSION: v3.14.0
+-- ARROW_RAPIDJSON_BUILD_VERSION: 1a803826f1197b5e30703afe4b9c0e7dd48074f5
+-- ARROW_RE2_BUILD_VERSION: 2021-02-02
+-- ARROW_SNAPPY_BUILD_VERSION: 1.1.8
+-- ARROW_THRIFT_BUILD_VERSION: 0.13.0
+-- ARROW_THRIFT_BUILD_MD5_CHECKSUM: 38a27d391a2b03214b444cb13d5664f1
+-- ARROW_UTF8PROC_BUILD_VERSION: v2.6.1
+-- ARROW_XSIMD_BUILD_VERSION: e9234cd6e6f4428fc260073b2c34ffe86fda1f34
+-- ARROW_ZLIB_BUILD_VERSION: 1.2.11
+-- ARROW_ZSTD_BUILD_VERSION: v1.5.0
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE  
+-- Looking for __SIZEOF_INT128__
+-- Looking for __SIZEOF_INT128__ - found
+-- Boost include dir: /home/centos/arrow-release-5.0.0/cpp/build/boost_ep-prefix/src/boost_ep
+-- Boost libraries: boost_system_static;boost_filesystem_static
+-- Building snappy from source
+-- Building brotli from source
+-- Found OpenSSL: /usr/local/ssl/lib/libcrypto.so (found suitable version "1.1.1c", minimum required is "1.0.2")  
+-- Found OpenSSL Crypto Library: /usr/local/ssl/lib/libcrypto.so
+-- Building with OpenSSL (Version: 1.1.1c) support
+-- Building gflags from source
+-- Added static library dependency gflags_static: /home/centos/arrow-release-5.0.0/cpp/build/gflags_ep-prefix/src/gflags_ep/lib/libgflags.a
+Building Apache Thrift from source
+Building Protocol Buffers from source
+-- Found protoc: /home/centos/arrow-release-5.0.0/cpp/build/protobuf_ep-install/bin/protoc
+-- Found libprotoc: /home/centos/arrow-release-5.0.0/cpp/build/protobuf_ep-install/lib/libprotoc.a
+-- Found libprotobuf: /home/centos/arrow-release-5.0.0/cpp/build/protobuf_ep-install/lib/libprotobuf.a
+-- Found protobuf headers: /home/centos/arrow-release-5.0.0/cpp/build/protobuf_ep-install/include
+-- Building xsimd from source
+-- Building ZLIB from source
+-- Building lz4 from source
+-- Building zstd from source
+-- Building RE2 from source
+-- Building BZip2 from source
+-- Building utf8proc from source
+-- Building c-ares from source
+-- Building gRPC from source
+-- Found hdfs.h at: /home/centos/arrow-release-5.0.0/cpp/thirdparty/hadoop/include/hdfs.h
+-- All bundled static libraries: Snappy::snappy;Brotli::brotlicommon;Brotli::brotlienc;Brotli::brotlidec;gflags_static;thrift::thrift;arrow::protobuf::libprotobuf;ZLIB::ZLIB;LZ4::lz4;zstd::libzstd;re2::re2;BZip2::BZip2;utf8proc::utf8proc;c-ares::cares;absl::statusor;absl::status;absl::cord;absl::str_format_internal;absl::synchronization;absl::graphcycles_internal;absl::symbolize;absl::demangle_internal;absl::stacktrace;absl::debugging_internal;absl::malloc_internal;absl::time;absl::time_zone;absl::strings;absl::strings_internal;absl::throw_delegate;absl::int128;absl::base;absl::spinlock_wait;absl::bad_optional_access;absl::raw_logging_internal;gRPC::address_sorting;gRPC::gpr;gRPC::grpc;gRPC::grpcpp_for_bundling;gRPC::upb
+-- CMAKE_C_FLAGS:  -O3 -DNDEBUG  -Wall -Wno-unknown-warning-option -fno-semantic-interposition -msse4.2 
+-- CMAKE_CXX_FLAGS:  -Wno-noexcept-type  -fdiagnostics-color=always -O3 -DNDEBUG  -Wall -Wno-unknown-warning-option -fno-semantic-interposition -msse4.2 
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- backtrace facility detected in default set of libraries
+-- Found Backtrace: /usr/include  
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "12.0".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "11.1".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "11.0".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "10".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "9".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+CMake Warning at cmake_modules/FindLLVMAlt.cmake:27 (find_package):
+  Could not find a configuration file for package "LLVM" that is compatible
+  with requested version "8".
+
+  The following configuration files were considered but not accepted:
+
+    /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm/LLVMConfig.cmake, version: 7.0.1
+
+Call Stack (most recent call first):
+  src/gandiva/CMakeLists.txt:28 (find_package)
+
+
+-- Found LLVMAlt: 7.0.1  
+-- Using LLVMConfig.cmake in: /opt/rh/llvm-toolset-7.0/root/usr/lib64/cmake/llvm
+-- Found llvm-link /opt/rh/llvm-toolset-7.0/root/usr/bin/llvm-link
+-- Found clang /opt/rh/llvm-toolset-7.0/root/usr/bin/clang-7
+-- Found OpenSSL: /usr/local/ssl/lib/libcrypto.so (found version "1.1.1c")  
+-- OpenSSL found with 1.1.1c version
+-- OpenSSL include dir: /usr/local/ssl/include
+-- ---------------------------------------------------------------------
+-- Arrow version:                                 5.0.0
+-- 
+-- Build configuration summary:
+--   Generator: Ninja
+--   Build type: RELEASE
+--   Source directory: /home/centos/arrow-release-5.0.0/cpp
+--   Install prefix: /usr/local
+-- 
+-- Compile and link options:
+-- 
+--   ARROW_CXXFLAGS="" [default=""]
+--       Compiler flags to append when compiling Arrow
+--   ARROW_BUILD_STATIC=OFF [default=ON]
+--       Build static libraries
+--   ARROW_BUILD_SHARED=ON [default=ON]
+--       Build shared libraries
+--   ARROW_PACKAGE_KIND="" [default=""]
+--       Arbitrary string that identifies the kind of package
+--       (for informational purposes)
+--   ARROW_GIT_ID="" [default=""]
+--       The Arrow git commit id (if any)
+--   ARROW_GIT_DESCRIPTION="" [default=""]
+--       The Arrow git commit description (if any)
+--   ARROW_NO_DEPRECATED_API=OFF [default=OFF]
+--       Exclude deprecated APIs from build
+--   ARROW_USE_CCACHE=ON [default=ON]
+--       Use ccache when compiling (if available)
+--   ARROW_USE_LD_GOLD=OFF [default=OFF]
+--       Use ld.gold for linking on Linux (if available)
+--   ARROW_USE_PRECOMPILED_HEADERS=OFF [default=OFF]
+--       Use precompiled headers when compiling
+--   ARROW_SIMD_LEVEL=SSE4_2 [default=NONE|SSE4_2|AVX2|AVX512]
+--       Compile-time SIMD optimization level
+--   ARROW_RUNTIME_SIMD_LEVEL=MAX [default=NONE|SSE4_2|AVX2|AVX512|MAX]
+--       Max runtime SIMD optimization level
+--   ARROW_ARMV8_ARCH=armv8-a [default=armv8-a|armv8-a+crc+crypto]
+--       Arm64 arch and extensions
+--   ARROW_ALTIVEC=ON [default=ON]
+--       Build with Altivec if compiler has support
+--   ARROW_RPATH_ORIGIN=OFF [default=OFF]
+--       Build Arrow libraries with RATH set to $ORIGIN
+--   ARROW_INSTALL_NAME_RPATH=ON [default=ON]
+--       Build Arrow libraries with install_name set to @rpath
+--   ARROW_GGDB_DEBUG=ON [default=ON]
+--       Pass -ggdb flag to debug builds
+-- 
+-- Test and benchmark options:
+-- 
+--   ARROW_BUILD_EXAMPLES=OFF [default=OFF]
+--       Build the Arrow examples
+--   ARROW_BUILD_TESTS=OFF [default=OFF]
+--       Build the Arrow googletest unit tests
+--   ARROW_ENABLE_TIMING_TESTS=OFF [default=ON]
+--       Enable timing-sensitive tests
+--   ARROW_BUILD_INTEGRATION=OFF [default=OFF]
+--       Build the Arrow integration test executables
+--   ARROW_BUILD_BENCHMARKS=OFF [default=OFF]
+--       Build the Arrow micro benchmarks
+--   ARROW_BUILD_BENCHMARKS_REFERENCE=OFF [default=OFF]
+--       Build the Arrow micro reference benchmarks
+--   ARROW_TEST_LINKAGE=shared [default=shared|static]
+--       Linkage of Arrow libraries with unit tests executables.
+--   ARROW_FUZZING=OFF [default=OFF]
+--       Build Arrow Fuzzing executables
+--   ARROW_LARGE_MEMORY_TESTS=OFF [default=OFF]
+--       Enable unit tests which use large memory
+-- 
+-- Lint options:
+-- 
+--   ARROW_ONLY_LINT=OFF [default=OFF]
+--       Only define the lint and check-format targets
+--   ARROW_VERBOSE_LINT=OFF [default=OFF]
+--       If off, 'quiet' flags will be passed to linting tools
+--   ARROW_GENERATE_COVERAGE=OFF [default=OFF]
+--       Build with C++ code coverage enabled
+-- 
+-- Checks options:
+-- 
+--   ARROW_TEST_MEMCHECK=OFF [default=OFF]
+--       Run the test suite using valgrind --tool=memcheck
+--   ARROW_USE_ASAN=OFF [default=OFF]
+--       Enable Address Sanitizer checks
+--   ARROW_USE_TSAN=OFF [default=OFF]
+--       Enable Thread Sanitizer checks
+--   ARROW_USE_UBSAN=OFF [default=OFF]
+--       Enable Undefined Behavior sanitizer checks
+-- 
+-- Project component options:
+-- 
+--   ARROW_BUILD_UTILITIES=OFF [default=OFF]
+--       Build Arrow commandline utilities
+--   ARROW_COMPUTE=ON [default=OFF]
+--       Build the Arrow Compute Modules
+--   ARROW_CSV=ON [default=OFF]
+--       Build the Arrow CSV Parser Module
+--   ARROW_CUDA=OFF [default=OFF]
+--       Build the Arrow CUDA extensions (requires CUDA toolkit)
+--   ARROW_DATASET=ON [default=OFF]
+--       Build the Arrow Dataset Modules
+--   ARROW_FILESYSTEM=ON [default=OFF]
+--       Build the Arrow Filesystem Layer
+--   ARROW_FLIGHT=ON [default=OFF]
+--       Build the Arrow Flight RPC System (requires GRPC, Protocol Buffers)
+--   ARROW_GANDIVA=ON [default=OFF]
+--       Build the Gandiva libraries
+--   ARROW_HDFS=OFF [default=OFF]
+--       Build the Arrow HDFS bridge
+--   ARROW_HIVESERVER2=OFF [default=OFF]
+--       Build the HiveServer2 client and Arrow adapter
+--   ARROW_IPC=ON [default=ON]
+--       Build the Arrow IPC extensions
+--   ARROW_JEMALLOC=OFF [default=ON]
+--       Build the Arrow jemalloc-based allocator
+--   ARROW_JNI=OFF [default=OFF]
+--       Build the Arrow JNI lib
+--   ARROW_JSON=OFF [default=OFF]
+--       Build Arrow with JSON support (requires RapidJSON)
+--   ARROW_MIMALLOC=OFF [default=OFF]
+--       Build the Arrow mimalloc-based allocator
+--   ARROW_PARQUET=ON [default=OFF]
+--       Build the Parquet libraries
+--   ARROW_ORC=OFF [default=OFF]
+--       Build the Arrow ORC adapter
+--   ARROW_PLASMA=ON [default=OFF]
+--       Build the plasma object store along with Arrow
+--   ARROW_PLASMA_JAVA_CLIENT=OFF [default=OFF]
+--       Build the plasma object store java client
+--   ARROW_PYTHON=OFF [default=OFF]
+--       Build the Arrow CPython extensions
+--   ARROW_S3=OFF [default=OFF]
+--       Build Arrow with S3 support (requires the AWS SDK for C++)
+--   ARROW_TENSORFLOW=OFF [default=OFF]
+--       Build Arrow with TensorFlow support enabled
+--   ARROW_TESTING=OFF [default=OFF]
+--       Build the Arrow testing libraries
+-- 
+-- Thirdparty toolchain options:
+-- 
+--   ARROW_DEPENDENCY_SOURCE=BUNDLED [default=AUTO|BUNDLED|SYSTEM|CONDA|VCPKG|BREW]
+--       Method to use for acquiring arrow's build dependencies
+--   ARROW_VERBOSE_THIRDPARTY_BUILD=OFF [default=OFF]
+--       Show output from ExternalProjects rather than just logging to files
+--   ARROW_DEPENDENCY_USE_SHARED=ON [default=ON]
+--       Link to shared libraries
+--   ARROW_BOOST_USE_SHARED=ON [default=ON]
+--       Rely on boost shared libraries where relevant
+--   ARROW_BROTLI_USE_SHARED=ON [default=ON]
+--       Rely on Brotli shared libraries where relevant
+--   ARROW_BZ2_USE_SHARED=ON [default=ON]
+--       Rely on Bz2 shared libraries where relevant
+--   ARROW_GFLAGS_USE_SHARED=ON [default=ON]
+--       Rely on GFlags shared libraries where relevant
+--   ARROW_GRPC_USE_SHARED=ON [default=ON]
+--       Rely on gRPC shared libraries where relevant
+--   ARROW_LZ4_USE_SHARED=ON [default=ON]
+--       Rely on lz4 shared libraries where relevant
+--   ARROW_OPENSSL_USE_SHARED=ON [default=ON]
+--       Rely on OpenSSL shared libraries where relevant
+--   ARROW_PROTOBUF_USE_SHARED=ON [default=ON]
+--       Rely on Protocol Buffers shared libraries where relevant
+--   ARROW_THRIFT_USE_SHARED=ON [default=ON]
+--       Rely on thrift shared libraries where relevant
+--   ARROW_UTF8PROC_USE_SHARED=ON [default=ON]
+--       Rely on utf8proc shared libraries where relevant
+--   ARROW_SNAPPY_USE_SHARED=ON [default=ON]
+--       Rely on snappy shared libraries where relevant
+--   ARROW_UTF8PROC_USE_SHARED=ON [default=ON]
+--       Rely on utf8proc shared libraries where relevant
+--   ARROW_ZSTD_USE_SHARED=ON [default=ON]
+--       Rely on zstd shared libraries where relevant
+--   ARROW_USE_GLOG=OFF [default=OFF]
+--       Build libraries with glog support for pluggable logging
+--   ARROW_WITH_BACKTRACE=ON [default=ON]
+--       Build with backtrace support
+--   ARROW_WITH_BROTLI=ON [default=OFF]
+--       Build with Brotli compression
+--   ARROW_WITH_BZ2=ON [default=OFF]
+--       Build with BZ2 compression
+--   ARROW_WITH_LZ4=ON [default=OFF]
+--       Build with lz4 compression
+--   ARROW_WITH_SNAPPY=ON [default=OFF]
+--       Build with Snappy compression
+--   ARROW_WITH_ZLIB=ON [default=OFF]
+--       Build with zlib compression
+--   ARROW_WITH_ZSTD=ON [default=OFF]
+--       Build with zstd compression
+--   ARROW_WITH_UTF8PROC=ON [default=ON]
+--       Build with support for Unicode properties using the utf8proc library
+--       (only used if ARROW_COMPUTE is ON or ARROW_GANDIVA is ON)
+--   ARROW_WITH_RE2=ON [default=ON]
+--       Build with support for regular expressions using the re2 library
+--       (only used if ARROW_COMPUTE or ARROW_GANDIVA is ON)
+-- 
+-- Parquet options:
+-- 
+--   PARQUET_MINIMAL_DEPENDENCY=OFF [default=OFF]
+--       Depend only on Thirdparty headers to build libparquet.
+--       Always OFF if building binaries
+--   PARQUET_BUILD_EXECUTABLES=OFF [default=OFF]
+--       Build the Parquet executable CLI tools. Requires static libraries to be built.
+--   PARQUET_BUILD_EXAMPLES=OFF [default=OFF]
+--       Build the Parquet examples. Requires static libraries to be built.
+--   PARQUET_REQUIRE_ENCRYPTION=OFF [default=OFF]
+--       Build support for encryption. Fail if OpenSSL is not found
+-- 
+-- Gandiva options:
+-- 
+--   ARROW_GANDIVA_JAVA=OFF [default=OFF]
+--       Build the Gandiva JNI wrappers
+--   ARROW_GANDIVA_STATIC_LIBSTDCPP=OFF [default=OFF]
+--       Include -static-libstdc++ -static-libgcc when linking with
+--       Gandiva static libraries
+--   ARROW_GANDIVA_PC_CXX_FLAGS="" [default=""]
+--       Compiler flags to append when pre-compiling Gandiva operations
+-- 
+-- Advanced developer options:
+-- 
+--   ARROW_EXTRA_ERROR_CONTEXT=ON [default=OFF]
+--       Compile with extra error context (line numbers, code)
+--   ARROW_OPTIONAL_INSTALL=OFF [default=OFF]
+--       If enabled install ONLY targets that have already been built. Please be
+--       advised that if this is enabled 'install' will fail silently on components
+--       that have not been built
+--   Outputting build configuration summary to /home/centos/arrow-release-5.0.0/cpp/build/cmake_summary.json
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/centos/arrow-release-5.0.0/cpp/build
+[1/455] Creating directories for 'absl_ep'
+[2/455] Creating directories for 'zstd_ep'
+[3/455] Creating directories for 'brotli_ep'
+[4/455] Creating directories for 'gflags_ep'
+[5/455] Creating directories for 'boost_ep'
+[6/455] Creating directories for 'protobuf_ep'
+[7/455] Creating directories for 'lz4_ep'
+[8/455] Creating directories for 'snappy_ep'
+[9/455] Creating directories for 'cares_ep'
+[10/455] Creating directories for 'bzip2_ep'
+[11/455] Creating directories for 'zlib_ep'
+[12/455] Creating directories for 're2_ep'
+[13/455] Creating directories for 'utf8proc_ep'
+[14/455] Creating directories for 'xsimd_ep'
+[15/455] Performing download step (download, verify and extract) for 'gflags_ep'
+[16/455] Performing download step (download, verify and extract) for 'bzip2_ep'
+[17/455] Performing download step (download, verify and extract) for 're2_ep'
+[18/455] No update step for 'gflags_ep'
+[19/455] No update step for 'bzip2_ep'
+[20/455] No update step for 're2_ep'
+[21/455] No patch step for 'gflags_ep'
+[22/455] No patch step for 'bzip2_ep'
+[23/455] No patch step for 're2_ep'
+[24/455] No configure step for 'bzip2_ep'
+[25/455] Performing download step (download, verify and extract) for 'brotli_ep'
+[26/455] Performing download step (download, verify and extract) for 'utf8proc_ep'
+[27/455] Performing download step (download, verify and extract) for 'xsimd_ep'
+[28/455] No update step for 'brotli_ep'
+[29/455] No update step for 'utf8proc_ep'
+[30/455] Performing download step (download, verify and extract) for 'lz4_ep'
+[31/455] No update step for 'xsimd_ep'
+[32/455] No patch step for 'brotli_ep'
+[33/455] No patch step for 'xsimd_ep'
+[34/455] Performing update step for 'lz4_ep'
+[35/455] No patch step for 'utf8proc_ep'
+[36/455] No patch step for 'lz4_ep'
+[37/455] No configure step for 'lz4_ep'
+[38/455] Performing download step (download, verify and extract) for 'snappy_ep'
+[39/455] No update step for 'snappy_ep'
+[40/455] No patch step for 'snappy_ep'
+[41/455] Performing download step (download, verify and extract) for 'zlib_ep'
+[42/455] Performing configure step for 'utf8proc_ep'
+[43/455] No update step for 'zlib_ep'
+[44/455] No patch step for 'zlib_ep'
+[45/455] Performing configure step for 're2_ep'
+[46/455] Performing download step (download, verify and extract) for 'absl_ep'
+[47/455] Performing download step (download, verify and extract) for 'zstd_ep'
+[48/455] No update step for 'absl_ep'
+[49/455] No update step for 'zstd_ep'
+[50/455] No patch step for 'absl_ep'
+[51/455] No patch step for 'zstd_ep'
+[52/455] Performing download step (download, verify and extract) for 'protobuf_ep'
+[53/455] No update step for 'protobuf_ep'
+[54/455] No patch step for 'protobuf_ep'
+[55/455] Performing configure step for 'brotli_ep'
+[56/455] Performing configure step for 'xsimd_ep'
+[57/455] Performing build step for 'xsimd_ep'
+[58/455] Performing download step (download, verify and extract) for 'cares_ep'
+[59/455] No update step for 'cares_ep'
+[60/455] No patch step for 'cares_ep'
+[61/455] Performing install step for 'xsimd_ep'
+[62/455] Completed 'xsimd_ep'
+[63/455] Performing build step for 'utf8proc_ep'
+[64/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/common.cc.o
+[65/455] Performing download step (download, verify and extract) for 'boost_ep'
+[66/455] No update step for 'boost_ep'
+[67/455] Performing install step for 'utf8proc_ep'
+[68/455] No patch step for 'boost_ep'
+[69/455] Completed 'utf8proc_ep'
+[70/455] No configure step for 'boost_ep'
+[71/455] No build step for 'boost_ep'
+[72/455] No install step for 'boost_ep'
+[73/455] Completed 'boost_ep'
+[74/455] Creating directories for 'thrift_ep'
+[75/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/fling.cc.o
+[76/455] Performing configure step for 'zlib_ep'
+[77/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/malloc.cc.o
+[78/455] Performing build step for 'bzip2_ep'
+[79/455] Performing download step (download, verify and extract) for 'thrift_ep'
+[80/455] No update step for 'thrift_ep'
+[81/455] Performing configure step for 'absl_ep'
+[82/455] No patch step for 'thrift_ep'
+[83/455] Performing configure step for 'protobuf_ep'
+[84/455] Performing configure step for 'gflags_ep'
+[85/455] Performing build step for 'zlib_ep'
+[86/455] Performing install step for 'zlib_ep'
+[87/455] Completed 'zlib_ep'
+[88/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/io.cc.o
+[89/455] Performing install step for 'bzip2_ep'
+[90/455] Completed 'bzip2_ep'
+[91/455] Performing configure step for 'zstd_ep'
+[92/455] Generating bitmap.bc
+[93/455] Performing configure step for 'snappy_ep'
+[94/455] Generating arithmetic_ops.bc
+[95/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/plasma.cc.o
+[96/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/client.cc.o
+[97/455] Generating basic_decimal.bc
+[98/455] Performing build step for 'snappy_ep'
+[99/455] Generating print.bc
+[100/455] Performing install step for 'snappy_ep'
+[101/455] Generating decimal_wrapper.bc
+[102/455] Completed 'snappy_ep'
+[103/455] Generating hash.bc
+[104/455] Generating extended_math_ops.bc
+[105/455] Generating decimal_ops.bc
+[106/455] Performing build step for 'brotli_ep'
+[107/455] Performing build step for 'gflags_ep'
+[108/455] Performing install step for 'brotli_ep'
+[109/455] Performing install step for 'gflags_ep'
+[110/455] Completed 'brotli_ep'
+[111/455] Completed 'gflags_ep'
+[112/455] Building CXX object src/plasma/CMakeFiles/plasma_objlib.dir/protocol.cc.o
+[113/455] Generating timestamp_arithmetic.bc
+[114/455] Generating time.bc
+[115/455] Generating string_ops.bc
+[116/455] Generating ../irhelpers.bc
+[117/455] Generating ../precompiled_bitcode.cc
+[118/455] Performing configure step for 'thrift_ep'
+[119/455] Performing build step for 'absl_ep'
+[120/455] Performing install step for 'absl_ep'
+[121/455] Completed 'absl_ep'
+[122/455] Performing build step for 're2_ep'
+[123/455] Performing install step for 're2_ep'
+[124/455] Completed 're2_ep'
+[125/455] Performing build step for 'lz4_ep'
+[126/455] No install step for 'lz4_ep'
+[127/455] Completed 'lz4_ep'
+[128/455] Performing build step for 'thrift_ep'
+[129/455] Performing install step for 'thrift_ep'
+[130/455] Completed 'thrift_ep'
+[131/455] Performing configure step for 'cares_ep'
+[132/455] Performing build step for 'cares_ep'
+[133/455] Performing install step for 'cares_ep'
+[134/455] Completed 'cares_ep'
+[135/455] Performing build step for 'zstd_ep'
+[136/455] Performing install step for 'zstd_ep'
+[137/455] Completed 'zstd_ep'
+[138/455] Performing build step for 'protobuf_ep'
+[139/455] Performing install step for 'protobuf_ep'
+[140/455] Completed 'protobuf_ep'
+[141/455] Creating directories for 'grpc_ep'
+[142/455] Performing download step (download, verify and extract) for 'grpc_ep'
+[143/455] No update step for 'grpc_ep'
+[144/455] No patch step for 'grpc_ep'
+[145/455] Performing configure step for 'grpc_ep'
+[146/455] Performing build step for 'grpc_ep'
+[147/455] Performing install step for 'grpc_ep'
+[148/455] Completed 'grpc_ep'
+[149/455] Generating libgrpcpp.a
+[150/455] Building C object src/plasma/CMakeFiles/plasma-store-server.dir/thirdparty/ae/ae.c.o
+[151/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/plasma_allocator.cc.o
+[152/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/events.cc.o
+[153/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/external_store.cc.o
+[154/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/hash_table_store.cc.o
+[155/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_decimal.cc.o
+[156/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_primitive.cc.o
+[157/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/eviction_policy.cc.o
+[158/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_binary.cc.o
+[159/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/quota_aware_policy.cc.o
+[160/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/dlmalloc.cc.o
+[161/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_adaptive.cc.o
+[162/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_decimal.cc.o
+[163/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_binary.cc.o
+[164/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_primitive.cc.o
+[165/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_base.cc.o
+[166/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_nested.cc.o
+[167/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/data.cc.o
+[168/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/config.cc.o
+[169/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_nested.cc.o
+[170/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_union.cc.o
+[171/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/concatenate.cc.o
+[172/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/buffer.cc.o
+[173/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/device.cc.o
+[174/455] Building CXX object src/plasma/CMakeFiles/plasma-store-server.dir/store.cc.o
+[175/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/extension_type.cc.o
+[176/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/chunked_array.cc.o
+[177/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/datum.cc.o
+[178/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/result.cc.o
+[179/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/validate.cc.o
+[180/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/memory_pool.cc.o
+[181/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/status.cc.o
+[182/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compare.cc.o
+[183/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/builder_dict.cc.o
+[184/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/table_builder.cc.o
+[185/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_base.cc.o
+[186/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/util.cc.o
+[187/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/record_batch.cc.o
+[188/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor.cc.o
+../src/arrow/tensor.cc: In member function ‘arrow::Result<long int> arrow::Tensor::CountNonZero() const’:
+../src/arrow/tensor.cc:337:18: warning: ‘*((void*)& counter +8)’ may be used uninitialized in this function [-Wmaybe-uninitialized]
+   NonZeroCounter counter(*this);
+                  ^~~~~~~
+At global scope:
+cc1plus: warning: unrecognized command line option ‘-Wno-unknown-warning-option’
+[189/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/sparse_tensor.cc.o
+[190/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/builder.cc.o
+[191/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/csx_converter.cc.o
+[192/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/csf_converter.cc.o
+[193/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/table.cc.o
+[194/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/array_dict.cc.o
+[195/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/visitor.cc.o
+[196/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/buffered.cc.o
+[197/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/caching.cc.o
+[198/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/array/diff.cc.o
+[199/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/compressed.cc.o
+[200/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/hdfs_internal.cc.o
+[201/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/hdfs.cc.o
+[202/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/stdio.cc.o
+[203/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/slow.cc.o
+[204/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/file.cc.o
+[205/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_block_counter.cc.o
+[206/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_run_reader.cc.o
+[207/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bit_util.cc.o
+[208/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/tensor/coo_converter.cc.o
+[209/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/basic_decimal.cc.o
+[210/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/interfaces.cc.o
+[211/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/pretty_print.cc.o
+[212/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap_builders.cc.o
+[213/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/memory.cc.o
+[214/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap.cc.o
+[215/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/cpu_info.cc.o
+[216/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/logging.cc.o
+[217/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression.cc.o
+[218/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/cancel.cc.o
+[219/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/io/transform.cc.o
+[220/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/formatting.cc.o
+[221/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/mutex.cc.o
+[222/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/delimiting.cc.o
+[223/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/string_builder.cc.o
+[224/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking.cc.o
+[225/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/string.cc.o
+[226/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/c/bridge.cc.o
+[227/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bitmap_ops.cc.o
+[228/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/future.cc.o
+[229/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/memory.cc.o
+[230/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/time.cc.o
+[231/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/key_value_metadata.cc.o
+[232/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/base64.cpp.o
+[233/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/trie.cc.o
+[234/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/bignum-dtoa.cc.o
+[235/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/cached-powers.cc.o
+[236/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/fast-dtoa.cc.o
+[237/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/decimal.cc.o
+[238/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/diy-fp.cc.o
+[239/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/task_group.cc.o
+[240/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/strtod.cc.o
+[241/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/bignum.cc.o
+[242/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/fixed-dtoa.cc.o
+[243/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/io_util.cc.o
+[244/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/utf8.cc.o
+[245/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/thread_pool.cc.o
+[246/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/tdigest.cc.o
+[247/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/uri.cc.o
+[248/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/type.cc.o
+[249/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/value_parsing.cc.o
+[250/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/double-conversion/double-conversion.cc.o
+[251/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_snappy.cc.o
+[252/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_brotli.cc.o
+[253/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_bz2.cc.o
+[254/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_zstd.cc.o
+[255/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/chunker.cc.o
+[256/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/int_util.cc.o
+[257/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/options.cc.o
+[258/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_zlib.cc.o
+[259/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/compression_lz4.cc.o
+[260/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking_avx2.cc.o
+[261/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/util/bpacking_avx512.cc.o
+[262/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/datetime/tz.cpp.o
+[263/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/column_decoder.cc.o
+[264/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/column_builder.cc.o
+[265/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/parser.cc.o
+[266/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/scalar.cc.o
+[267/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/writer.cc.o
+[268/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec.cc.o
+[269/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/cast.cc.o
+[270/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/function.cc.o
+[271/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernel.cc.o
+[272/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_aggregate.cc.o
+[273/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/registry.cc.o
+[274/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/function_internal.cc.o
+[275/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/exec_plan.cc.o
+[276/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_vector.cc.o
+[277/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/codegen_internal.cc.o
+[278/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_tdigest.cc.o
+[279/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_dictionary.cc.o
+[280/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_boolean.cc.o
+[281/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_var_std.cc.o
+[282/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/expression.cc.o
+[283/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/api_scalar.cc.o
+[284/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_boolean.cc.o
+[285/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_nested.cc.o
+[286/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_internal.cc.o
+[287/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/converter.cc.o
+[288/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic.cc.o
+[289/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_temporal.cc.o
+[290/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_quantile.cc.o
+[291/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/csv/reader.cc.o
+[292/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_mode.cc.o
+[293/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_nested.cc.o
+[294/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_validity.cc.o
+[295/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/util_internal.cc.o
+[296/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/hash_aggregate.cc.o
+[297/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_string.cc.o
+[298/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_fill_null.cc.o
+[299/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_hash.cc.o
+[300/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_compare.cc.o
+[301/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_nested.cc.o
+[302/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_map.cc.o
+[303/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/util.cc.o
+[304/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_set_lookup.cc.o
+[305/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_hash_avx2.cc.o
+[306/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_map_avx2.cc.o
+[307/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_compare_avx2.cc.o
+[308/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_encode_avx2.cc.o
+[309/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/util_avx2.cc.o
+[310/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/exec/key_encode.cc.o
+[311/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_replace.cc.o
+[312/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/filesystem/util_internal.cc.o
+[313/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/filesystem/path_util.cc.o
+[314/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/filesystem/localfs.cc.o
+[315/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_cast_numeric.cc.o
+[316/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic_avx2.cc.o
+[317/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/aggregate_basic_avx512.cc.o
+[318/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/filesystem/mockfs.cc.o
+[319/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/options.cc.o
+[320/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/musl/strptime.c.o
+[321/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriCommon.c.o
+[322/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriCompare.c.o
+[323/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriEscape.c.o
+[324/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_temporal.cc.o
+[325/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriIp4Base.c.o
+[326/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriFile.c.o
+[327/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/dictionary.cc.o
+[328/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriMemory.c.o
+[329/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriNormalizeBase.c.o
+[330/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriIp4.c.o
+[331/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriParseBase.c.o
+[332/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/filesystem/filesystem.cc.o
+[333/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriQuery.c.o
+[334/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriRecompose.c.o
+[335/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriResolve.c.o
+[336/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriShorten.c.o
+[337/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_hash.cc.o
+[338/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriParse.c.o
+[339/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/message.cc.o
+[340/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/feather.cc.o
+[341/455] Building C object src/arrow/CMakeFiles/arrow_objlib.dir/vendored/uriparser/UriNormalize.c.o
+[342/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_if_else.cc.o
+[343/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/projector.cc.o
+[344/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/metadata_internal.cc.o
+[345/455] Generating Flight.pb.cc, Flight.pb.h, Flight.grpc.pb.cc, Flight.grpc.pb.h
+[346/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/dataset.cc.o
+[347/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/discovery.cc.o
+[348/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/writer.cc.o
+[349/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/file_ipc.cc.o
+[350/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/client_cookie_middleware.cc.o
+[351/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_selection.cc.o
+[352/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/client_header_internal.cc.o
+[353/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/file_base.cc.o
+[354/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/server_auth.cc.o
+[355/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/file_csv.cc.o
+[356/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/partition.cc.o
+[357/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_compare.cc.o
+[358/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/ipc/reader.cc.o
+[359/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/internal.cc.o
+[360/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/serialization_internal.cc.o
+[361/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/schema_internal.cc.o
+[362/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/bloom_filter.cc.o
+[363/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/file_parquet.cc.o
+[364/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/types.cc.o
+[365/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/path_internal.cc.o
+[366/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/schema.cc.o
+[367/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/writer.cc.o
+[368/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/server.cc.o
+[369/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_string.cc.o
+[370/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_scanner.cc.o
+[371/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/exception.cc.o
+[372/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/client.cc.o
+[373/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/internal_file_encryptor.cc.o
+[374/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_comparison.cc.o
+[375/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/internal_file_decryptor.cc.o
+[376/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/encryption.cc.o
+[377/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_conversion.cc.o
+[378/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/murmur3.cc.o
+[379/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/__/generated/parquet_constants.cpp.o
+[380/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/platform.cc.o
+[381/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/reader_internal.cc.o
+[382/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/arrow/reader.cc.o
+[383/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/file_writer.cc.o
+[384/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/properties.cc.o
+[385/455] Building CXX object src/arrow/flight/CMakeFiles/arrow_flight_objlib.dir/protocol_internal.cc.o
+[386/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/printer.cc.o
+[387/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/file_reader.cc.o
+[388/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_comparison_avx2.cc.o
+[389/455] Building CXX object src/arrow/dataset/CMakeFiles/arrow_dataset_objlib.dir/scanner.cc.o
+[390/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/level_conversion_bmi2.cc.o
+[391/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/stream_writer.cc.o
+[392/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encryption/encryption_internal_nossl.cc.o
+[393/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/cache.cc.o
+[394/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/configuration.cc.o
+[395/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/stream_reader.cc.o
+[396/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/schema.cc.o
+[397/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/types.cc.o
+[398/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/annotator.cc.o
+[399/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/bitmap_accumulator.cc.o
+[400/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/decimal_type_util.cc.o
+[401/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/statistics.cc.o
+[402/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/metadata.cc.o
+[403/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/date_utils.cc.o
+[404/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/context_helper.cc.o
+[405/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/expression.cc.o
+[406/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_writer.cc.o
+[407/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/__/generated/parquet_types.cpp.o
+[408/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/cast_time.cc.o
+[409/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/column_reader.cc.o
+[410/455] Building CXX object src/parquet/CMakeFiles/parquet_objlib.dir/encoding.cc.o
+[411/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/decimal_ir.cc.o
+[412/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/scalar_arithmetic.cc.o
+[413/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/expr_validator.cc.o
+[414/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry.cc.o
+[415/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/exported_funcs_registry.cc.o
+[416/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/expression_registry.cc.o
+[417/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/engine.cc.o
+[418/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/hash_utils.cc.o
+[419/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_ir_builder.cc.o
+[420/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/expr_decomposer.cc.o
+[421/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_signature.cc.o
+[422/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/literal_holder.cc.o
+[423/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/regex_util.cc.o
+[424/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/decimal_xlarge.cc.o
+[425/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/filter.cc.o
+[426/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_datetime.cc.o
+[427/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/selection_vector.cc.o
+[428/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/like_holder.cc.o
+[429/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/llvm_types.cc.o
+[430/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/precompiled_bitcode.cc.o
+[431/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/random_generator_holder.cc.o
+[432/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/to_date_holder.cc.o
+[433/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_timestamp_arithmetic.cc.o
+[434/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/tree_expr_builder.cc.o
+[435/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/gdv_function_stubs.cc.o
+[436/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_string.cc.o
+[437/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/projector.cc.o
+[438/455] Building CXX object src/arrow/CMakeFiles/arrow_objlib.dir/compute/kernels/vector_sort.cc.o
+[439/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/llvm_generator.cc.o
+[440/455] Linking CXX shared library release/libarrow.so.500.0.0
+[441/455] Creating library symlink release/libarrow.so.500 release/libarrow.so
+[442/455] Linking CXX shared library release/libplasma.so.500.0.0
+[443/455] Creating library symlink release/libplasma.so.500 release/libplasma.so
+[444/455] Linking CXX executable release/plasma-store-server
+[445/455] Linking CXX shared library release/libparquet.so.500.0.0
+[446/455] Creating library symlink release/libparquet.so.500 release/libparquet.so
+[447/455] Linking CXX shared library release/libarrow_dataset.so.500.0.0
+[448/455] Creating library symlink release/libarrow_dataset.so.500 release/libarrow_dataset.so
+[449/455] Linking CXX shared library release/libarrow_flight.so.500.0.0
+[450/455] Creating library symlink release/libarrow_flight.so.500 release/libarrow_flight.so
+[451/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_arithmetic.cc.o
+[452/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_math_ops.cc.o
+[453/455] Building CXX object src/gandiva/CMakeFiles/gandiva_objlib.dir/function_registry_hash.cc.o
+[454/455] Linking CXX shared library release/libgandiva.so.500.0.0
+[455/455] Creating library symlink release/libgandiva.so.500 release/libgandiva.so
+[1/20] Performing update step for 'lz4_ep'
+[2/20] No patch step for 'lz4_ep'
+[3/20] No configure step for 'lz4_ep'
+[4/20] Performing build step for 'lz4_ep'
+[5/7] No install step for 'lz4_ep'
+[6/7] Completed 'lz4_ep'
+[6/7] Install the project...
+-- Install configuration: "RELEASE"
+-- Installing: /usr/local/include/arrow/util/config.h
+-- Up-to-date: /usr/local/share/doc/arrow/LICENSE.txt
+-- Up-to-date: /usr/local/share/doc/arrow/NOTICE.txt
+-- Up-to-date: /usr/local/share/doc/arrow/README.md
+-- Installing: /usr/local/lib64/libplasma.so.500.0.0
+-- Up-to-date: /usr/local/lib64/libplasma.so.500
+-- Set runtime path of "/usr/local/lib64/libplasma.so.500.0.0" to ""
+-- Up-to-date: /usr/local/lib64/libplasma.so
+-- Up-to-date: /usr/local/lib64/cmake/arrow/FindPlasma.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/PlasmaTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/PlasmaTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/PlasmaConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/PlasmaConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/plasma.pc
+-- Up-to-date: /usr/local/include/plasma/common.h
+-- Up-to-date: /usr/local/include/plasma/compat.h
+-- Up-to-date: /usr/local/include/plasma/client.h
+-- Up-to-date: /usr/local/include/plasma/events.h
+-- Up-to-date: /usr/local/include/plasma/test_util.h
+-- Installing: /usr/local/bin/plasma-store-server
+-- Set runtime path of "/usr/local/bin/plasma-store-server" to "/usr/local/ssl/lib"
+-- Installing: /usr/local/lib64/libarrow.so.500.0.0
+-- Up-to-date: /usr/local/lib64/libarrow.so.500
+-- Set runtime path of "/usr/local/lib64/libarrow.so.500.0.0" to ""
+-- Up-to-date: /usr/local/lib64/libarrow.so
+-- Up-to-date: /usr/local/lib64/cmake/arrow/FindArrow.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/arrow.pc
+-- Up-to-date: /usr/local/include/arrow/api.h
+-- Up-to-date: /usr/local/include/arrow/array.h
+-- Up-to-date: /usr/local/include/arrow/buffer.h
+-- Up-to-date: /usr/local/include/arrow/buffer_builder.h
+-- Up-to-date: /usr/local/include/arrow/builder.h
+-- Up-to-date: /usr/local/include/arrow/chunked_array.h
+-- Up-to-date: /usr/local/include/arrow/compare.h
+-- Up-to-date: /usr/local/include/arrow/config.h
+-- Up-to-date: /usr/local/include/arrow/datum.h
+-- Up-to-date: /usr/local/include/arrow/device.h
+-- Up-to-date: /usr/local/include/arrow/extension_type.h
+-- Up-to-date: /usr/local/include/arrow/memory_pool.h
+-- Up-to-date: /usr/local/include/arrow/memory_pool_test.h
+-- Up-to-date: /usr/local/include/arrow/pch.h
+-- Up-to-date: /usr/local/include/arrow/pretty_print.h
+-- Up-to-date: /usr/local/include/arrow/record_batch.h
+-- Up-to-date: /usr/local/include/arrow/result.h
+-- Up-to-date: /usr/local/include/arrow/scalar.h
+-- Up-to-date: /usr/local/include/arrow/sparse_tensor.h
+-- Up-to-date: /usr/local/include/arrow/status.h
+-- Up-to-date: /usr/local/include/arrow/stl.h
+-- Up-to-date: /usr/local/include/arrow/stl_allocator.h
+-- Up-to-date: /usr/local/include/arrow/stl_iterator.h
+-- Up-to-date: /usr/local/include/arrow/table.h
+-- Up-to-date: /usr/local/include/arrow/table_builder.h
+-- Up-to-date: /usr/local/include/arrow/tensor.h
+-- Up-to-date: /usr/local/include/arrow/type.h
+-- Up-to-date: /usr/local/include/arrow/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/type_traits.h
+-- Up-to-date: /usr/local/include/arrow/visitor.h
+-- Up-to-date: /usr/local/include/arrow/visitor_inline.h
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowOptions.cmake
+-- Up-to-date: /usr/local/lib64/cmake/arrow/arrow-config.cmake
+-- Up-to-date: /usr/local/include/arrow/testing/executor_util.h
+-- Up-to-date: /usr/local/include/arrow/testing/extension_type.h
+-- Up-to-date: /usr/local/include/arrow/testing/future_util.h
+-- Up-to-date: /usr/local/include/arrow/testing/generator.h
+-- Up-to-date: /usr/local/include/arrow/testing/gtest_common.h
+-- Up-to-date: /usr/local/include/arrow/testing/gtest_compat.h
+-- Up-to-date: /usr/local/include/arrow/testing/gtest_util.h
+-- Up-to-date: /usr/local/include/arrow/testing/json_integration.h
+-- Up-to-date: /usr/local/include/arrow/testing/macros.h
+-- Up-to-date: /usr/local/include/arrow/testing/matchers.h
+-- Up-to-date: /usr/local/include/arrow/testing/pch.h
+-- Up-to-date: /usr/local/include/arrow/testing/random.h
+-- Up-to-date: /usr/local/include/arrow/testing/uniform_real.h
+-- Up-to-date: /usr/local/include/arrow/testing/util.h
+-- Up-to-date: /usr/local/include/arrow/testing/visibility.h
+-- Up-to-date: /usr/local/include/arrow/array/array_base.h
+-- Up-to-date: /usr/local/include/arrow/array/array_binary.h
+-- Up-to-date: /usr/local/include/arrow/array/array_decimal.h
+-- Up-to-date: /usr/local/include/arrow/array/array_dict.h
+-- Up-to-date: /usr/local/include/arrow/array/array_nested.h
+-- Up-to-date: /usr/local/include/arrow/array/array_primitive.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_adaptive.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_base.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_binary.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_decimal.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_dict.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_nested.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_primitive.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_time.h
+-- Up-to-date: /usr/local/include/arrow/array/builder_union.h
+-- Up-to-date: /usr/local/include/arrow/array/concatenate.h
+-- Up-to-date: /usr/local/include/arrow/array/data.h
+-- Up-to-date: /usr/local/include/arrow/array/diff.h
+-- Up-to-date: /usr/local/include/arrow/array/util.h
+-- Up-to-date: /usr/local/include/arrow/array/validate.h
+-- Up-to-date: /usr/local/include/arrow/c/abi.h
+-- Up-to-date: /usr/local/include/arrow/c/bridge.h
+-- Up-to-date: /usr/local/include/arrow/c/helpers.h
+-- Up-to-date: /usr/local/include/arrow/io/api.h
+-- Up-to-date: /usr/local/include/arrow/io/buffered.h
+-- Up-to-date: /usr/local/include/arrow/io/caching.h
+-- Up-to-date: /usr/local/include/arrow/io/compressed.h
+-- Up-to-date: /usr/local/include/arrow/io/concurrency.h
+-- Up-to-date: /usr/local/include/arrow/io/file.h
+-- Up-to-date: /usr/local/include/arrow/io/hdfs.h
+-- Up-to-date: /usr/local/include/arrow/io/interfaces.h
+-- Up-to-date: /usr/local/include/arrow/io/memory.h
+-- Up-to-date: /usr/local/include/arrow/io/mman.h
+-- Up-to-date: /usr/local/include/arrow/io/slow.h
+-- Up-to-date: /usr/local/include/arrow/io/stdio.h
+-- Up-to-date: /usr/local/include/arrow/io/test_common.h
+-- Up-to-date: /usr/local/include/arrow/io/transform.h
+-- Up-to-date: /usr/local/include/arrow/io/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/tensor/converter.h
+-- Up-to-date: /usr/local/include/arrow/util/algorithm.h
+-- Up-to-date: /usr/local/include/arrow/util/align_util.h
+-- Up-to-date: /usr/local/include/arrow/util/async_generator.h
+-- Up-to-date: /usr/local/include/arrow/util/atomic_shared_ptr.h
+-- Up-to-date: /usr/local/include/arrow/util/base64.h
+-- Up-to-date: /usr/local/include/arrow/util/basic_decimal.h
+-- Up-to-date: /usr/local/include/arrow/util/benchmark_util.h
+-- Up-to-date: /usr/local/include/arrow/util/bit_block_counter.h
+-- Up-to-date: /usr/local/include/arrow/util/bit_run_reader.h
+-- Up-to-date: /usr/local/include/arrow/util/bit_stream_utils.h
+-- Up-to-date: /usr/local/include/arrow/util/bit_util.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_builders.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_generate.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_ops.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_reader.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_visit.h
+-- Up-to-date: /usr/local/include/arrow/util/bitmap_writer.h
+-- Up-to-date: /usr/local/include/arrow/util/bitset_stack.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_avx2.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_avx512.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_default.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_neon.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_simd128_generated.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_simd256_generated.h
+-- Up-to-date: /usr/local/include/arrow/util/bpacking_simd512_generated.h
+-- Up-to-date: /usr/local/include/arrow/util/byte_stream_split.h
+-- Up-to-date: /usr/local/include/arrow/util/cancel.h
+-- Up-to-date: /usr/local/include/arrow/util/checked_cast.h
+-- Up-to-date: /usr/local/include/arrow/util/compare.h
+-- Up-to-date: /usr/local/include/arrow/util/compiler_util.h
+-- Up-to-date: /usr/local/include/arrow/util/compression.h
+-- Up-to-date: /usr/local/include/arrow/util/concurrent_map.h
+-- Up-to-date: /usr/local/include/arrow/util/converter.h
+-- Up-to-date: /usr/local/include/arrow/util/cpu_info.h
+-- Up-to-date: /usr/local/include/arrow/util/decimal.h
+-- Up-to-date: /usr/local/include/arrow/util/delimiting.h
+-- Up-to-date: /usr/local/include/arrow/util/dispatch.h
+-- Up-to-date: /usr/local/include/arrow/util/double_conversion.h
+-- Up-to-date: /usr/local/include/arrow/util/endian.h
+-- Up-to-date: /usr/local/include/arrow/util/enum.h
+-- Up-to-date: /usr/local/include/arrow/util/formatting.h
+-- Up-to-date: /usr/local/include/arrow/util/functional.h
+-- Up-to-date: /usr/local/include/arrow/util/future.h
+-- Up-to-date: /usr/local/include/arrow/util/future_iterator.h
+-- Up-to-date: /usr/local/include/arrow/util/hash_util.h
+-- Up-to-date: /usr/local/include/arrow/util/hashing.h
+-- Up-to-date: /usr/local/include/arrow/util/int_util.h
+-- Up-to-date: /usr/local/include/arrow/util/io_util.h
+-- Up-to-date: /usr/local/include/arrow/util/iterator.h
+-- Up-to-date: /usr/local/include/arrow/util/key_value_metadata.h
+-- Up-to-date: /usr/local/include/arrow/util/logging.h
+-- Up-to-date: /usr/local/include/arrow/util/macros.h
+-- Up-to-date: /usr/local/include/arrow/util/make_unique.h
+-- Up-to-date: /usr/local/include/arrow/util/map.h
+-- Up-to-date: /usr/local/include/arrow/util/memory.h
+-- Up-to-date: /usr/local/include/arrow/util/mutex.h
+-- Up-to-date: /usr/local/include/arrow/util/optional.h
+-- Up-to-date: /usr/local/include/arrow/util/parallel.h
+-- Up-to-date: /usr/local/include/arrow/util/pcg_random.h
+-- Up-to-date: /usr/local/include/arrow/util/print.h
+-- Up-to-date: /usr/local/include/arrow/util/queue.h
+-- Up-to-date: /usr/local/include/arrow/util/range.h
+-- Up-to-date: /usr/local/include/arrow/util/rle_encoding.h
+-- Up-to-date: /usr/local/include/arrow/util/simd.h
+-- Up-to-date: /usr/local/include/arrow/util/sort.h
+-- Up-to-date: /usr/local/include/arrow/util/spaced.h
+-- Up-to-date: /usr/local/include/arrow/util/stopwatch.h
+-- Up-to-date: /usr/local/include/arrow/util/string.h
+-- Up-to-date: /usr/local/include/arrow/util/string_builder.h
+-- Up-to-date: /usr/local/include/arrow/util/string_view.h
+-- Up-to-date: /usr/local/include/arrow/util/task_group.h
+-- Up-to-date: /usr/local/include/arrow/util/tdigest.h
+-- Up-to-date: /usr/local/include/arrow/util/test_common.h
+-- Up-to-date: /usr/local/include/arrow/util/thread_pool.h
+-- Up-to-date: /usr/local/include/arrow/util/time.h
+-- Up-to-date: /usr/local/include/arrow/util/trie.h
+-- Up-to-date: /usr/local/include/arrow/util/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/util/type_traits.h
+-- Up-to-date: /usr/local/include/arrow/util/ubsan.h
+-- Up-to-date: /usr/local/include/arrow/util/uri.h
+-- Up-to-date: /usr/local/include/arrow/util/utf8.h
+-- Up-to-date: /usr/local/include/arrow/util/value_parsing.h
+-- Up-to-date: /usr/local/include/arrow/util/variant.h
+-- Up-to-date: /usr/local/include/arrow/util/vector.h
+-- Up-to-date: /usr/local/include/arrow/util/visibility.h
+-- Up-to-date: /usr/local/include/arrow/util/windows_compatibility.h
+-- Up-to-date: /usr/local/include/arrow/util/windows_fixup.h
+-- Up-to-date: /usr/local/include/arrow/vendored/ProducerConsumerQueue.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime.h
+-- Up-to-date: /usr/local/include/arrow/vendored/optional.hpp
+-- Up-to-date: /usr/local/include/arrow/vendored/string_view.hpp
+-- Up-to-date: /usr/local/include/arrow/vendored/strptime.h
+-- Up-to-date: /usr/local/include/arrow/vendored/xxhash.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime/date.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime/ios.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime/tz.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime/tz_private.h
+-- Up-to-date: /usr/local/include/arrow/vendored/datetime/visibility.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/bignum-dtoa.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/bignum.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/cached-powers.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/diy-fp.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/double-conversion.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/fast-dtoa.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/fixed-dtoa.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/ieee.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/strtod.h
+-- Up-to-date: /usr/local/include/arrow/vendored/double-conversion/utils.h
+-- Up-to-date: /usr/local/include/arrow/csv/api.h
+-- Up-to-date: /usr/local/include/arrow/csv/chunker.h
+-- Up-to-date: /usr/local/include/arrow/csv/column_builder.h
+-- Up-to-date: /usr/local/include/arrow/csv/column_decoder.h
+-- Up-to-date: /usr/local/include/arrow/csv/converter.h
+-- Up-to-date: /usr/local/include/arrow/csv/options.h
+-- Up-to-date: /usr/local/include/arrow/csv/parser.h
+-- Up-to-date: /usr/local/include/arrow/csv/reader.h
+-- Up-to-date: /usr/local/include/arrow/csv/test_common.h
+-- Up-to-date: /usr/local/include/arrow/csv/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/csv/writer.h
+-- Installing: /usr/local/lib64/pkgconfig/arrow-csv.pc
+-- Up-to-date: /usr/local/include/arrow/compute/api.h
+-- Up-to-date: /usr/local/include/arrow/compute/api_aggregate.h
+-- Up-to-date: /usr/local/include/arrow/compute/api_scalar.h
+-- Up-to-date: /usr/local/include/arrow/compute/api_vector.h
+-- Up-to-date: /usr/local/include/arrow/compute/cast.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec.h
+-- Up-to-date: /usr/local/include/arrow/compute/function.h
+-- Up-to-date: /usr/local/include/arrow/compute/kernel.h
+-- Up-to-date: /usr/local/include/arrow/compute/registry.h
+-- Up-to-date: /usr/local/include/arrow/compute/type_fwd.h
+-- Installing: /usr/local/lib64/pkgconfig/arrow-compute.pc
+-- Up-to-date: /usr/local/include/arrow/compute/exec/exec_plan.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/expression.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/key_compare.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/key_encode.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/key_hash.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/key_map.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/test_util.h
+-- Up-to-date: /usr/local/include/arrow/compute/exec/util.h
+-- Up-to-date: /usr/local/include/arrow/dataset/api.h
+-- Up-to-date: /usr/local/include/arrow/dataset/dataset.h
+-- Up-to-date: /usr/local/include/arrow/dataset/discovery.h
+-- Up-to-date: /usr/local/include/arrow/dataset/file_base.h
+-- Up-to-date: /usr/local/include/arrow/dataset/file_csv.h
+-- Up-to-date: /usr/local/include/arrow/dataset/file_ipc.h
+-- Up-to-date: /usr/local/include/arrow/dataset/file_parquet.h
+-- Up-to-date: /usr/local/include/arrow/dataset/partition.h
+-- Up-to-date: /usr/local/include/arrow/dataset/pch.h
+-- Up-to-date: /usr/local/include/arrow/dataset/projector.h
+-- Up-to-date: /usr/local/include/arrow/dataset/scanner.h
+-- Up-to-date: /usr/local/include/arrow/dataset/test_util.h
+-- Up-to-date: /usr/local/include/arrow/dataset/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/dataset/visibility.h
+-- Installing: /usr/local/lib64/libarrow_dataset.so.500.0.0
+-- Up-to-date: /usr/local/lib64/libarrow_dataset.so.500
+-- Set runtime path of "/usr/local/lib64/libarrow_dataset.so.500.0.0" to ""
+-- Up-to-date: /usr/local/lib64/libarrow_dataset.so
+-- Up-to-date: /usr/local/lib64/cmake/arrow/FindArrowDataset.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowDatasetTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowDatasetTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowDatasetConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowDatasetConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/arrow-dataset.pc
+-- Up-to-date: /usr/local/include/arrow/filesystem/api.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/filesystem.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/hdfs.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/localfs.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/mockfs.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/path_util.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/s3_test_util.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/s3fs.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/test_util.h
+-- Up-to-date: /usr/local/include/arrow/filesystem/type_fwd.h
+-- Installing: /usr/local/lib64/pkgconfig/arrow-filesystem.pc
+-- Installing: /usr/local/include/arrow/flight/api.h
+-- Installing: /usr/local/include/arrow/flight/client.h
+-- Installing: /usr/local/include/arrow/flight/client_auth.h
+-- Installing: /usr/local/include/arrow/flight/client_cookie_middleware.h
+-- Installing: /usr/local/include/arrow/flight/client_middleware.h
+-- Installing: /usr/local/include/arrow/flight/customize_protobuf.h
+-- Installing: /usr/local/include/arrow/flight/middleware.h
+-- Installing: /usr/local/include/arrow/flight/pch.h
+-- Installing: /usr/local/include/arrow/flight/platform.h
+-- Installing: /usr/local/include/arrow/flight/server.h
+-- Installing: /usr/local/include/arrow/flight/server_auth.h
+-- Installing: /usr/local/include/arrow/flight/server_middleware.h
+-- Installing: /usr/local/include/arrow/flight/test_integration.h
+-- Installing: /usr/local/include/arrow/flight/test_util.h
+-- Installing: /usr/local/include/arrow/flight/types.h
+-- Installing: /usr/local/include/arrow/flight/visibility.h
+-- Installing: /usr/local/lib64/libarrow_flight.so.500.0.0
+-- Installing: /usr/local/lib64/libarrow_flight.so.500
+-- Set runtime path of "/usr/local/lib64/libarrow_flight.so.500.0.0" to ""
+-- Installing: /usr/local/lib64/libarrow_flight.so
+-- Installing: /usr/local/lib64/cmake/arrow/FindArrowFlight.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowFlightTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowFlightTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowFlightConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ArrowFlightConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/arrow-flight.pc
+-- Up-to-date: /usr/local/include/arrow/ipc/api.h
+-- Up-to-date: /usr/local/include/arrow/ipc/dictionary.h
+-- Up-to-date: /usr/local/include/arrow/ipc/feather.h
+-- Up-to-date: /usr/local/include/arrow/ipc/json_simple.h
+-- Up-to-date: /usr/local/include/arrow/ipc/message.h
+-- Up-to-date: /usr/local/include/arrow/ipc/options.h
+-- Up-to-date: /usr/local/include/arrow/ipc/reader.h
+-- Up-to-date: /usr/local/include/arrow/ipc/test_common.h
+-- Up-to-date: /usr/local/include/arrow/ipc/type_fwd.h
+-- Up-to-date: /usr/local/include/arrow/ipc/util.h
+-- Up-to-date: /usr/local/include/arrow/ipc/writer.h
+-- Installing: /usr/local/lib64/libparquet.so.500.0.0
+-- Up-to-date: /usr/local/lib64/libparquet.so.500
+-- Set runtime path of "/usr/local/lib64/libparquet.so.500.0.0" to ""
+-- Up-to-date: /usr/local/lib64/libparquet.so
+-- Up-to-date: /usr/local/lib64/cmake/arrow/FindParquet.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ParquetTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ParquetTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ParquetConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/ParquetConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/parquet.pc
+-- Up-to-date: /usr/local/include/parquet/bloom_filter.h
+-- Up-to-date: /usr/local/include/parquet/column_page.h
+-- Up-to-date: /usr/local/include/parquet/column_reader.h
+-- Up-to-date: /usr/local/include/parquet/column_scanner.h
+-- Up-to-date: /usr/local/include/parquet/column_writer.h
+-- Up-to-date: /usr/local/include/parquet/encoding.h
+-- Up-to-date: /usr/local/include/parquet/exception.h
+-- Up-to-date: /usr/local/include/parquet/file_reader.h
+-- Up-to-date: /usr/local/include/parquet/file_writer.h
+-- Up-to-date: /usr/local/include/parquet/hasher.h
+-- Up-to-date: /usr/local/include/parquet/level_comparison.h
+-- Up-to-date: /usr/local/include/parquet/level_comparison_inc.h
+-- Up-to-date: /usr/local/include/parquet/level_conversion.h
+-- Up-to-date: /usr/local/include/parquet/level_conversion_inc.h
+-- Up-to-date: /usr/local/include/parquet/metadata.h
+-- Up-to-date: /usr/local/include/parquet/murmur3.h
+-- Up-to-date: /usr/local/include/parquet/pch.h
+-- Up-to-date: /usr/local/include/parquet/platform.h
+-- Up-to-date: /usr/local/include/parquet/printer.h
+-- Up-to-date: /usr/local/include/parquet/properties.h
+-- Up-to-date: /usr/local/include/parquet/schema.h
+-- Up-to-date: /usr/local/include/parquet/statistics.h
+-- Up-to-date: /usr/local/include/parquet/stream_reader.h
+-- Up-to-date: /usr/local/include/parquet/stream_writer.h
+-- Up-to-date: /usr/local/include/parquet/test_util.h
+-- Up-to-date: /usr/local/include/parquet/type_fwd.h
+-- Up-to-date: /usr/local/include/parquet/types.h
+-- Up-to-date: /usr/local/include/parquet/windows_compatibility.h
+-- Installing: /usr/local/include/parquet/parquet_version.h
+-- Up-to-date: /usr/local/include/parquet/api/io.h
+-- Up-to-date: /usr/local/include/parquet/api/reader.h
+-- Up-to-date: /usr/local/include/parquet/api/schema.h
+-- Up-to-date: /usr/local/include/parquet/api/writer.h
+-- Up-to-date: /usr/local/include/parquet/arrow/reader.h
+-- Up-to-date: /usr/local/include/parquet/arrow/schema.h
+-- Up-to-date: /usr/local/include/parquet/arrow/test_util.h
+-- Up-to-date: /usr/local/include/parquet/arrow/writer.h
+-- Up-to-date: /usr/local/include/parquet/encryption/crypto_factory.h
+-- Up-to-date: /usr/local/include/parquet/encryption/encryption.h
+-- Up-to-date: /usr/local/include/parquet/encryption/file_key_material_store.h
+-- Up-to-date: /usr/local/include/parquet/encryption/file_key_unwrapper.h
+-- Up-to-date: /usr/local/include/parquet/encryption/file_key_wrapper.h
+-- Up-to-date: /usr/local/include/parquet/encryption/key_encryption_key.h
+-- Up-to-date: /usr/local/include/parquet/encryption/key_material.h
+-- Up-to-date: /usr/local/include/parquet/encryption/key_metadata.h
+-- Up-to-date: /usr/local/include/parquet/encryption/key_toolkit.h
+-- Up-to-date: /usr/local/include/parquet/encryption/kms_client.h
+-- Up-to-date: /usr/local/include/parquet/encryption/kms_client_factory.h
+-- Up-to-date: /usr/local/include/parquet/encryption/local_wrap_kms_client.h
+-- Up-to-date: /usr/local/include/parquet/encryption/test_encryption_util.h
+-- Up-to-date: /usr/local/include/parquet/encryption/test_in_memory_kms.h
+-- Up-to-date: /usr/local/include/parquet/encryption/two_level_cache_with_expiration.h
+-- Installing: /usr/local/lib64/libgandiva.so.500.0.0
+-- Up-to-date: /usr/local/lib64/libgandiva.so.500
+-- Set runtime path of "/usr/local/lib64/libgandiva.so.500.0.0" to ""
+-- Up-to-date: /usr/local/lib64/libgandiva.so
+-- Up-to-date: /usr/local/lib64/cmake/arrow/FindGandiva.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/GandivaTargets.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/GandivaTargets-release.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/GandivaConfig.cmake
+-- Installing: /usr/local/lib64/cmake/arrow/GandivaConfigVersion.cmake
+-- Installing: /usr/local/lib64/pkgconfig/gandiva.pc
+-- Up-to-date: /usr/local/include/gandiva/annotator.h
+-- Up-to-date: /usr/local/include/gandiva/arrow.h
+-- Up-to-date: /usr/local/include/gandiva/basic_decimal_scalar.h
+-- Up-to-date: /usr/local/include/gandiva/bitmap_accumulator.h
+-- Up-to-date: /usr/local/include/gandiva/cache.h
+-- Up-to-date: /usr/local/include/gandiva/compiled_expr.h
+-- Up-to-date: /usr/local/include/gandiva/condition.h
+-- Up-to-date: /usr/local/include/gandiva/configuration.h
+-- Up-to-date: /usr/local/include/gandiva/date_utils.h
+-- Up-to-date: /usr/local/include/gandiva/decimal_ir.h
+-- Up-to-date: /usr/local/include/gandiva/decimal_scalar.h
+-- Up-to-date: /usr/local/include/gandiva/decimal_type_util.h
+-- Up-to-date: /usr/local/include/gandiva/decimal_xlarge.h
+-- Up-to-date: /usr/local/include/gandiva/dex.h
+-- Up-to-date: /usr/local/include/gandiva/dex_visitor.h
+-- Up-to-date: /usr/local/include/gandiva/engine.h
+-- Up-to-date: /usr/local/include/gandiva/eval_batch.h
+-- Up-to-date: /usr/local/include/gandiva/execution_context.h
+-- Up-to-date: /usr/local/include/gandiva/exported_funcs.h
+-- Up-to-date: /usr/local/include/gandiva/exported_funcs_registry.h
+-- Up-to-date: /usr/local/include/gandiva/expr_decomposer.h
+-- Up-to-date: /usr/local/include/gandiva/expr_validator.h
+-- Up-to-date: /usr/local/include/gandiva/expression.h
+-- Up-to-date: /usr/local/include/gandiva/expression_registry.h
+-- Up-to-date: /usr/local/include/gandiva/field_descriptor.h
+-- Up-to-date: /usr/local/include/gandiva/filter.h
+-- Up-to-date: /usr/local/include/gandiva/formatting_utils.h
+-- Up-to-date: /usr/local/include/gandiva/func_descriptor.h
+-- Up-to-date: /usr/local/include/gandiva/function_holder.h
+-- Up-to-date: /usr/local/include/gandiva/function_holder_registry.h
+-- Up-to-date: /usr/local/include/gandiva/function_ir_builder.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_arithmetic.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_common.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_datetime.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_hash.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_math_ops.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_string.h
+-- Up-to-date: /usr/local/include/gandiva/function_registry_timestamp_arithmetic.h
+-- Up-to-date: /usr/local/include/gandiva/function_signature.h
+-- Up-to-date: /usr/local/include/gandiva/gandiva_aliases.h
+-- Up-to-date: /usr/local/include/gandiva/gdv_function_stubs.h
+-- Up-to-date: /usr/local/include/gandiva/greedy_dual_size_cache.h
+-- Up-to-date: /usr/local/include/gandiva/hash_utils.h
+-- Up-to-date: /usr/local/include/gandiva/in_holder.h
+-- Up-to-date: /usr/local/include/gandiva/like_holder.h
+-- Up-to-date: /usr/local/include/gandiva/literal_holder.h
+-- Up-to-date: /usr/local/include/gandiva/llvm_generator.h
+-- Up-to-date: /usr/local/include/gandiva/llvm_includes.h
+-- Up-to-date: /usr/local/include/gandiva/llvm_types.h
+-- Up-to-date: /usr/local/include/gandiva/local_bitmaps_holder.h
+-- Up-to-date: /usr/local/include/gandiva/lvalue.h
+-- Up-to-date: /usr/local/include/gandiva/native_function.h
+-- Up-to-date: /usr/local/include/gandiva/node.h
+-- Up-to-date: /usr/local/include/gandiva/node_visitor.h
+-- Up-to-date: /usr/local/include/gandiva/pch.h
+-- Up-to-date: /usr/local/include/gandiva/projector.h
+-- Up-to-date: /usr/local/include/gandiva/random_generator_holder.h
+-- Up-to-date: /usr/local/include/gandiva/regex_util.h
+-- Up-to-date: /usr/local/include/gandiva/selection_vector.h
+-- Up-to-date: /usr/local/include/gandiva/selection_vector_impl.h
+-- Up-to-date: /usr/local/include/gandiva/simple_arena.h
+-- Up-to-date: /usr/local/include/gandiva/to_date_holder.h
+-- Up-to-date: /usr/local/include/gandiva/tree_expr_builder.h
+-- Up-to-date: /usr/local/include/gandiva/value_validity_pair.h
+-- Up-to-date: /usr/local/include/gandiva/visibility.h

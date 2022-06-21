@@ -1,0 +1,23 @@
+#!/bin/bash
+#
+# February 2022 - Gene Weber
+#
+# installation of gdbgui  https://www.gdbgui.com/installation/
+
+# Always
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+
+# Install pip
+sudo apt install python3-pip
+# Install pipx
+pip3 install --user pipx
+# add pipx to path
+export PATH=$PATH:~/.local/bin
+# vi ~/.bashrc and add to it as well.
+# Install Python3 Environment
+sudo apt install python3-venv
+
+sudo apt install gdb
+
